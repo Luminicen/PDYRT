@@ -4,7 +4,7 @@
 #include <netinet/in.h>
 #include <netdb.h> 
 
-#define buf_size 256
+#define buf_size 32750
 
 void error(char *msg)
 {
@@ -52,15 +52,16 @@ int main(int argc, char *argv[])
 	//DESCRIPTOR - DIRECCION - TAMAÑO DIRECCION
     if (connect(sockfd,&serv_addr,sizeof(serv_addr)) < 0) 
         error("ERROR connecting");
-    printf("Please enter the message: ");
+    //printf("Please enter the message: ");
     bzero(buffer,buf_size);
-    fgets(buffer,buf_size-1,stdin);
+    //fgets(buffer,buf_size-1,stdin);
+    memset((buffer), 'a', buf_size);
     //ENVIA UN MENSAJE AL SOCKET
-	n = write(sockfd,buffer,strlen(buffer));
+    n = write(sockfd,buffer,strlen(buffer));
     if (n < 0) 
          error("ERROR writing to socket");
     bzero(buffer,buf_size);
-	
+
     //ESPERA RECIBIR UNA RESPUESTA
 	n = read(sockfd,buffer,buf_size-1);
     if (n < 0) 

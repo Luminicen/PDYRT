@@ -5,13 +5,13 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-#define buf_size 256
+#define buf_size 32750
 
 void error(char *msg)
 {
     perror(msg);
     exit(1);
-}
+}	
 
 int main(int argc, char *argv[])
 {
@@ -58,9 +58,17 @@ int main(int argc, char *argv[])
      bzero(buffer,buf_size);
 
 	//LEE EL MENSAJE DEL CLIENTE
-     n = read(newsockfd,buffer,buf_size-1);
+     //int j = 0;
+     n = read(newsockfd,buffer,buf_size);
+     //j+=n;
      if (n < 0) error("ERROR reading from socket");
-     printf("Here is the message: %s\n",buffer);
+     /*while(j < buf_size){
+     	n = read(newsockfd,buffer+j,buf_size-1);
+     	j += n;
+     }*/
+     
+     printf("Cantidad de caracteres leidos: %d\n",n);
+     //printf("Here is the message: %s\n",buffer);
 	 
 	 //RESPONDE AL CLIENTE
      n = write(newsockfd,"I got your message",18);
