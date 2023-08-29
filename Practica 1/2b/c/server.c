@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-#define buf_size 32750
+#define buf_size 100000
 
 void error(char *msg)
 {
