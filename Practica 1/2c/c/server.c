@@ -80,6 +80,9 @@ int main(int argc, char *argv[])
      	j += n;
      } while(j < cant_bytes);
      
+     //RESPONDE AL CLIENTE
+     n = write(newsockfd,"I got your message",18);
+     
      printf("Cantidad de caracteres leidos: %d\n",n);
      
     //GENERA SDBM HASH

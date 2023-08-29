@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
         
     	
     //ENVIA HASH AL SOCKET
-    n = write(sockfd,hash,sizeof(unsigned int));
+    n = write(sockfd,&hash,sizeof(hash));
     if (n < 0) 
          error("ERROR writing to socketz");
     bzero(buffer,buf_size);
