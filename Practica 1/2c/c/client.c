@@ -68,15 +68,17 @@ int main(int argc, char *argv[])
     for (int i = 0; i < strlen(buffer); i++)
     	hash = buffer[i] + (hash << 6) + (hash << 16) - hash;
     
-    printf("hash: %d\n", hash);
+    printf("hash: %u\n", hash);
+    
+    int cant_bytes = htonl(buffer);
     
     //ENVIA CANTIDAD DE BYTES DEL MENSAJE AL SOCKET
-    n = write(sockfd,strlen(buffer),sizeof(strlen(buffer)));
+    n = write(sockfd,&cant_bytes,sizeof(buffer));
     if (n < 0) 
          error("ERROR writing cant bytes message to socket");
          
     //ESPERA RECIBIR UNA RESPUESTA
-	n = read(sockfd,buffer,buf_size-1);
+    n = read(sockfd,buffer,buf_size);
 
     if (n < 0) 
  	error("ERROR reading from socket");
@@ -88,27 +90,19 @@ int main(int argc, char *argv[])
     bzero(buffer,buf_size);
     
     //ESPERA RECIBIR UNA RESPUESTA
-    n = read(sockfd,buffer,buf_size-1);
+    n = read(sockfd,buffer,buf_size);
     if (n < 0) 
          error("ERROR reading from socket");
         
-    
-    //ENVIA CANTIDAD DE BYTES DEL HASH AL SOCKET
-    n = write(sockfd,hash,sizeof(hash));
-    if (n < 0) 
-         error("ERROR writing to socket");
-         
-    //ESPERA RECIBIR UNA RESPUESTA
-    n = read(sockfd,buffer,buf_size-1);
     	
     //ENVIA HASH AL SOCKET
-    n = write(sockfd,buffer,strlen(buffer));
+    n = write(sockfd,hash,sizeof(unsigned int));
     if (n < 0) 
-         error("ERROR writing to socket");
+         error("ERROR writing to socketz");
     bzero(buffer,buf_size);
 
     //ESPERA RECIBIR UNA RESPUESTA
-	n = read(sockfd,buffer,buf_size-1);
+	n = read(sockfd,buffer,buf_size);
     if (n < 0) 
          error("ERROR reading from socket");
     

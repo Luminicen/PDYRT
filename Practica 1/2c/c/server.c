@@ -91,28 +91,17 @@ int main(int argc, char *argv[])
     
     bzero(buffer,buf_size);
      
-     //LEE CANT DE BYTES QUE RECIBIRA HASH
-     n = read(newsockfd,buffer,buf_size);
-     cant_bytes = (unsigned int)buffer;
-     
      //LEE EL MENSAJE DEL CLIENTE
-     	j = 0;
-     do{
-     	n = read(newsockfd,buffer,buf_size);
-     	if (n < 0){ 
-     	  error("ERROR reading from socket");
-     	  break;
-     	}
-     	j += n;
-     } while(j < cant_bytes);
+     n = read(newsockfd,buffer,buf_size);
      
      //RESPONDE AL CLIENTE
      n = write(newsockfd,"I got your message",18);
      if (n < 0) error("ERROR writing to socket");
      
-
-     if (n < 0) error("ERROR reading from socket");
-
+     //LEE EL HASH DEL CLIENTE
+     n = read(newsockfd,buffer,buf_size);
+      if (n < 0) error("ERROR reading to socket");
+    
      if(hash != (unsigned int)buffer) printf("El mensaje fue alterado");	 
 
      return 0; 
