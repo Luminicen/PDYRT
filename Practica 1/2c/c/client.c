@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
     struct hostent *server;
 
     char buffer[buf_size];
+    char message[2];
     if (argc < 3) {
        fprintf(stderr,"usage %s hostname port\n", argv[0]);
        exit(0);
@@ -56,11 +57,9 @@ int main(int argc, char *argv[])
     if (connect(sockfd,&serv_addr,sizeof(serv_addr)) < 0) 
         error("ERROR connecting");
         
-    //printf("Please enter the message: ");
     
     bzero(buffer,buf_size);
     
-    //fgets(buffer,buf_size-1,stdin);
     memset((buffer), 'a', buf_size);
     
     //GENERA SDBM HASH
@@ -68,9 +67,10 @@ int main(int argc, char *argv[])
     for (int i = 0; i < strlen(buffer); i++)
     	hash = buffer[i] + (hash << 6) + (hash << 16) - hash;
     
-    printf("hash: %u\n", hash);
     
-    int cant_bytes = htonl(buffer);
+    int cant_bytes = strlen(buffer);
+    
+    printf("cant bytes: %d\n", cant_bytes);
     
     //ENVIA CANTIDAD DE BYTES DEL MENSAJE AL SOCKET
     n = write(sockfd,&cant_bytes,sizeof(buffer));
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
          error("ERROR writing cant bytes message to socket");
          
     //ESPERA RECIBIR UNA RESPUESTA
-    n = read(sockfd,buffer,buf_size);
+    n = read(sockfd,message,2);
 
     if (n < 0) 
  	error("ERROR reading from socket");
@@ -90,19 +90,20 @@ int main(int argc, char *argv[])
     bzero(buffer,buf_size);
     
     //ESPERA RECIBIR UNA RESPUESTA
-    n = read(sockfd,buffer,buf_size);
+    n = read(sockfd,message,2);
     if (n < 0) 
          error("ERROR reading from socket");
         
     	
     //ENVIA HASH AL SOCKET
+    printf("hash: %u\n", hash);
     n = write(sockfd,&hash,sizeof(hash));
     if (n < 0) 
          error("ERROR writing to socketz");
     bzero(buffer,buf_size);
 
     //ESPERA RECIBIR UNA RESPUESTA
-	n = read(sockfd,buffer,buf_size);
+    n = read(sockfd,message,2);
     if (n < 0) 
          error("ERROR reading from socket");
     
