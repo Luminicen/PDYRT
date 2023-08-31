@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include <strings.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h> 
+#include <sys/time.h>
 
-#define buf_size 32770
+#define buf_size 1000	
+
+double dwalltime();
 
 void error(char *msg)
 {
@@ -59,6 +59,10 @@ int main(int argc, char *argv[])
     bzero(buffer,buf_size);
     //fgets(buffer,buf_size-1,stdin);
     memset((buffer), 'a', buf_size);
+
+    //CALCULA TIEMPO INICIO DE COMUNICACION
+    double tiempoInicio = dwalltime();
+
     //ENVIA UN MENSAJE AL SOCKET
     n = write(sockfd,buffer,strlen(buffer));
     if (n < 0) 
@@ -69,7 +73,22 @@ int main(int argc, char *argv[])
 	n = read(sockfd,buffer,buf_size-1);
     if (n < 0) 
          error("ERROR reading from socket");
+
+    //CALCULA TIEMPO FIN DE COMUNICACION
+    double tiempoFin = dwalltime() - tiempoInicio;
+
+    printf("Tiempo total de comunicacion en segundos: %f\n", tiempoFin);
     
 	printf("%s\n",buffer);
     return 0;
+}
+
+double dwalltime()
+{
+  double sec;
+  struct timeval tv;
+
+  gettimeofday(&tv, NULL);
+  sec = tv.tv_sec + tv.tv_usec / 1000000.0;
+  return sec;
 }
