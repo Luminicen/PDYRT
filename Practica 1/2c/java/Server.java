@@ -5,10 +5,9 @@
  * Usage:
  * java Server port
  */
-
 import java.io.*;
 import java.net.*;
-
+import checker.MD5Checksum;;
 public class Server
 {
   public static void main(String[] args) throws IOException
@@ -52,28 +51,25 @@ public class Server
     /* Get the I/O streams from the connected socket */
     fromclient = new DataInputStream(connected_socket.getInputStream());
     toclient   = new DataOutputStream(connected_socket.getOutputStream());
+    int bufferSize = fromclient.readInt();
+    byte[] checksum = new byte[16];
+    fromclient.read(checksum);
+    byte[] buffer = new byte[bufferSize];
+    int totalBytesRead = 0;
+    while (totalBytesRead < bufferSize)
+      {
+        int bytesRead = fromclient.read(buffer,totalBytesRead,bufferSize - totalBytesRead);
+        if ( bytesRead < 0 )
+          {
+            System.err.println("Error to read buffer");
+            System.exit(1);
+          }
+        totalBytesRead += bytesRead;
+      }
 
-    /* Buffer to use with communications (and its length) */
-    byte[] buffer;
-    buffer = new byte[1000000000];
-    
-    /* Recv data from client */
-    fromclient.read(buffer);
-
-    /* Convert to string */
-    String str = new String(buffer);
-
-    System.out.println("Here is the message: " +  str.length());
-
-    /* Fixed string to the client */
-    String strresp = "I got your message";
-
-    System.out.println("strrsp " + strresp);
-
-    buffer = strresp.getBytes();
-
-    /* Send the bytes back */
-    toclient.write(buffer, 0, buffer.length);
+      System.out.println("Validacion: " + MD5Checksum.isValid(checksum, buffer));
+      System.out.println("Byetes que se leyeron: " + totalBytesRead);
+        
 
     /* Close everything related to the client connection */
     fromclient.close();

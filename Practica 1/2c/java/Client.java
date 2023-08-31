@@ -5,10 +5,10 @@
  * usage:
  * java Client serverhostname port
  */
-
 import java.io.*;
 import java.net.*;
-
+import java.security.*;
+import checker.MD5Checksum;;
 public class Client
 {
   public static void main(String[] args) throws IOException
@@ -40,31 +40,16 @@ public class Client
     /* Streams for I/O through the connected socket */
     fromserver = new DataInputStream(socketwithserver.getInputStream());
     toserver   = new DataOutputStream(socketwithserver.getOutputStream());
-
-    /* Buffer to use with communications (and its length) */
-    byte[] buffer = new byte[1000000000];
+    int bufferSize = 1000;
+    byte[] buffer = new byte[bufferSize];
+    for (int j = 0; j < bufferSize; j++)
+      buffer[j] = 'a';
+    byte[] checksum = MD5Checksum.generate(buffer);
+    toserver.writeInt(bufferSize);
+    toserver.write(checksum, 0, checksum.length);
+    toserver.write(buffer, 0, bufferSize);
     
-    /* Get some input from user */
-    Console console  = System.console();
-    String inputline = console.readLine("Please enter the message: ");
 
-    /* Get the bytes... */
-    //buffer = "100000".getBytes("UTF-8");//inputline.getBytes();
-     for(int i=0;i<1000000000;i++){
-        buffer[i] = (byte)1;
-    }
-    /* Send read data to server */
-    toserver.write(buffer, 0, buffer.length);
-
-   
-    /* Recv data back from server (get space) */
-    buffer = new byte[1000000000];
-    fromserver.read(buffer);
-
-    /* Show data received from server */
-    String resp = new String(buffer);
-    System.out.println(resp);
-    
     fromserver.close();
     toserver.close();
     socketwithserver.close();
