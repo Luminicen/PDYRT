@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h> 
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h> 
 #include <sys/time.h>
-
-#define buf_size 1000	
 
 double dwalltime();
 
@@ -21,11 +22,17 @@ int main(int argc, char *argv[])
     struct sockaddr_in serv_addr;
     struct hostent *server;
 
-    char buffer[buf_size];
-    if (argc < 3) {
-       fprintf(stderr,"usage %s hostname port\n", argv[0]);
+    if (argc < 4) {
+       fprintf(stderr,"usage %s hostname port buffer size\n", argv[0]);
        exit(0);
     }
+
+    int buf_size = atoi(argv[3]);
+
+    printf("tamaño de buffer: %d \n", buf_size);
+
+    char buffer[buf_size];
+    
 	//TOMA EL NUMERO DE PUERTO DE LOS ARGUMENTOS
     portno = atoi(argv[2]);
 	
@@ -65,18 +72,21 @@ int main(int argc, char *argv[])
 
     //ENVIA UN MENSAJE AL SOCKET
     n = write(sockfd,buffer,strlen(buffer));
+    printf("pepe\n");
     if (n < 0) 
          error("ERROR writing to socket");
     bzero(buffer,buf_size);
 
     //ESPERA RECIBIR UNA RESPUESTA
+    printf("pepe\n");
 	n = read(sockfd,buffer,buf_size-1);
+    printf("pepe\n");
     if (n < 0) 
          error("ERROR reading from socket");
 
     //CALCULA TIEMPO FIN DE COMUNICACION
     double tiempoFin = dwalltime() - tiempoInicio;
-
+    printf("pepe\n");
     printf("Tiempo total de comunicacion en segundos: %f\n", tiempoFin);
     
 	printf("%s\n",buffer);
