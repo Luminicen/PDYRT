@@ -36,31 +36,20 @@ public class Client
     /* Streams from/to server */
     DataInputStream  fromserver;
     DataOutputStream toserver;
-    long totalTime = 0;
+
     /* Streams for I/O through the connected socket */
     fromserver = new DataInputStream(socketwithserver.getInputStream());
     toserver   = new DataOutputStream(socketwithserver.getOutputStream());
-    int bufferSize = 1000000;
+    int bufferSize = 1000;
     byte[] buffer = new byte[bufferSize];
     for (int j = 0; j < bufferSize; j++)
       buffer[j] = 'a';
     byte[] checksum = MD5Checksum.generate(buffer);
-    long startTime = System.nanoTime();
     toserver.writeInt(bufferSize);
-    long endTime = System.nanoTime();
-    long elapsedTime = endTime - startTime;
-    totalTime = totalTime + elapsedTime;
-    startTime = System.nanoTime();
     toserver.write(checksum, 0, checksum.length);
-    endTime = System.nanoTime();
-    elapsedTime = endTime - startTime;
-    totalTime = totalTime + elapsedTime;
-    startTime = System.nanoTime();
     toserver.write(buffer, 0, bufferSize);
-    endTime = System.nanoTime();
-    elapsedTime = endTime - startTime;
-    totalTime = totalTime + elapsedTime;
-    System.out.println("Tiempo total: "+totalTime);
+    
+
     fromserver.close();
     toserver.close();
     socketwithserver.close();

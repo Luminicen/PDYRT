@@ -5,11 +5,11 @@
  * usage:
  * java Client serverhostname port
  */
+
 import java.io.*;
 import java.net.*;
-import java.security.*;
-import checker.MD5Checksum;;
-public class Client
+
+public class Client2
 {
   public static void main(String[] args) throws IOException
   {
@@ -36,31 +36,33 @@ public class Client
     /* Streams from/to server */
     DataInputStream  fromserver;
     DataOutputStream toserver;
-    long totalTime = 0;
+
     /* Streams for I/O through the connected socket */
     fromserver = new DataInputStream(socketwithserver.getInputStream());
     toserver   = new DataOutputStream(socketwithserver.getOutputStream());
-    int bufferSize = 1000000;
-    byte[] buffer = new byte[bufferSize];
-    for (int j = 0; j < bufferSize; j++)
-      buffer[j] = 'a';
-    byte[] checksum = MD5Checksum.generate(buffer);
-    long startTime = System.nanoTime();
-    toserver.writeInt(bufferSize);
-    long endTime = System.nanoTime();
-    long elapsedTime = endTime - startTime;
-    totalTime = totalTime + elapsedTime;
-    startTime = System.nanoTime();
-    toserver.write(checksum, 0, checksum.length);
-    endTime = System.nanoTime();
-    elapsedTime = endTime - startTime;
-    totalTime = totalTime + elapsedTime;
-    startTime = System.nanoTime();
-    toserver.write(buffer, 0, bufferSize);
-    endTime = System.nanoTime();
-    elapsedTime = endTime - startTime;
-    totalTime = totalTime + elapsedTime;
-    System.out.println("Tiempo total: "+totalTime);
+
+    /* Buffer to use with communications (and its length) */
+    byte[] buffer;
+    
+    /* Get some input from user */
+    BufferedReader console  = new BufferedReader(new InputStreamReader(System.in));
+    System.out.print("Please enter the message: ");
+    String inputline = console.readLine();
+
+    /* Get the bytes... */
+    buffer = inputline.getBytes();
+
+    /* Send read data to server */
+    toserver.write(buffer, 0, buffer.length);
+    
+    /* Recv data back from server (get space) */
+    buffer = new byte[256];
+    fromserver.read(buffer);
+
+    /* Show data received from server */
+    String resp = new String(buffer);
+    System.out.println(resp);
+    
     fromserver.close();
     toserver.close();
     socketwithserver.close();
