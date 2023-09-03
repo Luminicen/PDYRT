@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h> 
+#include <unistd.h>  
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h> 
 #include <sys/time.h>
+#include <math.h>
+
 
 double dwalltime();
 
@@ -22,17 +24,18 @@ int main(int argc, char *argv[])
     struct sockaddr_in serv_addr;
     struct hostent *server;
 
-    if (argc < 4) {
+    if (argc < 3) {
        fprintf(stderr,"usage %s hostname port buffer size\n", argv[0]);
        exit(0);
     }
 
     int buf_size = atoi(argv[3]);
 
+    char buffer[buf_size];
+    char message[2];
+
     printf("tamaño de buffer: %d \n", buf_size);
 
-    char buffer[buf_size];
-    
 	//TOMA EL NUMERO DE PUERTO DE LOS ARGUMENTOS
     portno = atoi(argv[2]);
 	
@@ -62,32 +65,76 @@ int main(int argc, char *argv[])
 	//DESCRIPTOR - DIRECCION - TAMAÑO DIRECCION
     if (connect(sockfd,&serv_addr,sizeof(serv_addr)) < 0) 
         error("ERROR connecting");
-    //printf("Please enter the message: ");
+        
+    
     bzero(buffer,buf_size);
-    //fgets(buffer,buf_size-1,stdin);
+    
+    //**********************************************//
+
+    //GENERA MENSAJE
     memset((buffer), 'a', buf_size);
 
     //CALCULA TIEMPO INICIO DE COMUNICACION
     double tiempoInicio = dwalltime();
+    
+    //GENERA SDBM HASH
+    unsigned int hash = 0;
+    for (int i = 0; i < strlen(buffer); i++)
+    	hash = buffer[i] + (hash << 6) + (hash << 16) - hash;
+    
+    
+    int cant_bytes = strlen(buffer);
+    
+    printf("cant bytes: %d\n", cant_bytes);
+    
+    //ENVIA CANTIDAD DE BYTES DEL MENSAJE AL SOCKET
+    n = write(sockfd,&cant_bytes,sizeof(cant_bytes));
+    if (n < 0) 
+         error("ERROR writing cant bytes message to socket");
+         
+    //ESPERA RECIBIR UNA RESPUESTA
+    n = read(sockfd,message,2);
 
+    if (n < 0) 
+ 	error("ERROR reading from socket");
+	
     //ENVIA UN MENSAJE AL SOCKET
     n = write(sockfd,buffer,strlen(buffer));
-    printf("pepe\n");
     if (n < 0) 
-         error("ERROR writing to socket");
+         error("ERROR writing message to socket");
+    bzero(buffer,buf_size);
+    
+    //ESPERA RECIBIR UNA RESPUESTA
+    n = read(sockfd,message,2);
+    if (n < 0) 
+         error("ERROR reading from socket");
+        
+    	
+    //ENVIA HASH AL SOCKET
+    printf("hash: %u\n", hash);
+    n = write(sockfd,&hash,sizeof(hash));
+    if (n < 0) 
+         error("ERROR writing to socketz");
     bzero(buffer,buf_size);
 
     //ESPERA RECIBIR UNA RESPUESTA
-    printf("pepe\n");
-	n = read(sockfd,buffer,buf_size-1);
-    printf("pepe\n");
+    double tproc;
+
+    n = read(sockfd,&tproc,sizeof(double));
     if (n < 0) 
          error("ERROR reading from socket");
 
+    //si es negativo es xq esta corrupto
+    if (tproc < 0)
+        printf("Error en la transmision del mensaje enviado\n");
+
+    //calcula abs para restar a la comuinicacion
+    tproc = fabs(tproc);
+
     //CALCULA TIEMPO FIN DE COMUNICACION
-    double tiempoFin = dwalltime() - tiempoInicio;
-    printf("pepe\n");
+    double tiempoFin = dwalltime() - tiempoInicio - tproc;
     printf("Tiempo total de comunicacion en segundos: %f\n", tiempoFin);
+    
     
 	printf("%s\n",buffer);
     return 0;
