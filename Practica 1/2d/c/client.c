@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>  
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <netdb.h> 
+#include <netdb.h>
 #include <sys/time.h>
 #include <math.h>
-
 
 double dwalltime();
 
@@ -24,9 +23,10 @@ int main(int argc, char *argv[])
     struct sockaddr_in serv_addr;
     struct hostent *server;
 
-    if (argc < 3) {
-       fprintf(stderr,"usage %s hostname port buffer size\n", argv[0]);
-       exit(0);
+    if (argc < 3)
+    {
+        fprintf(stderr, "usage %s hostname port buffer size\n", argv[0]);
+        exit(0);
     }
 
     int buf_size = atoi(argv[3]);
@@ -36,116 +36,113 @@ int main(int argc, char *argv[])
 
     printf("tamaño de buffer: %d \n", buf_size);
 
-	//TOMA EL NUMERO DE PUERTO DE LOS ARGUMENTOS
+    // TOMA EL NUMERO DE PUERTO DE LOS ARGUMENTOS
     portno = atoi(argv[2]);
-	
-	//CREA EL FILE DESCRIPTOR DEL SOCKET PARA LA CONEXION
+
+    // CREA EL FILE DESCRIPTOR DEL SOCKET PARA LA CONEXION
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
-	//AF_INET - FAMILIA DEL PROTOCOLO - IPV4 PROTOCOLS INTERNET
-	//SOCK_STREAM - TIPO DE SOCKET 
-	
-    if (sockfd < 0) 
+    // AF_INET - FAMILIA DEL PROTOCOLO - IPV4 PROTOCOLS INTERNET
+    // SOCK_STREAM - TIPO DE SOCKET
+
+    if (sockfd < 0)
         error("ERROR opening socket");
-	
-	//TOMA LA DIRECCION DEL SERVER DE LOS ARGUMENTOS
+
+    // TOMA LA DIRECCION DEL SERVER DE LOS ARGUMENTOS
     server = gethostbyname(argv[1]);
-    if (server == NULL) {
-        fprintf(stderr,"ERROR, no such host\n");
+    if (server == NULL)
+    {
+        fprintf(stderr, "ERROR, no such host\n");
         exit(0);
     }
-    bzero((char *) &serv_addr, sizeof(serv_addr));
+    bzero((char *)&serv_addr, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;
-	
-	//COPIA LA DIRECCION IP Y EL PUERTO DEL SERVIDOR A LA ESTRUCTURA DEL SOCKET
-    bcopy((char *)server->h_addr, 
-         (char *)&serv_addr.sin_addr.s_addr,
-         server->h_length);
-     serv_addr.sin_port = htons(portno);
-	
-	//DESCRIPTOR - DIRECCION - TAMAÑO DIRECCION
-    if (connect(sockfd,&serv_addr,sizeof(serv_addr)) < 0) 
+
+    // COPIA LA DIRECCION IP Y EL PUERTO DEL SERVIDOR A LA ESTRUCTURA DEL SOCKET
+    bcopy((char *)server->h_addr,
+          (char *)&serv_addr.sin_addr.s_addr,
+          server->h_length);
+    serv_addr.sin_port = htons(portno);
+
+    // DESCRIPTOR - DIRECCION - TAMAÑO DIRECCION
+    if (connect(sockfd, &serv_addr, sizeof(serv_addr)) < 0)
         error("ERROR connecting");
-        
-    
-    bzero(buffer,buf_size);
-    
+
+    bzero(buffer, buf_size);
+
     //**********************************************//
 
-    //GENERA MENSAJE
+    // GENERA MENSAJE
     memset((buffer), 'a', buf_size);
 
-    //CALCULA TIEMPO INICIO DE COMUNICACION
+    // CALCULA TIEMPO INICIO DE COMUNICACION
     double tiempoInicio = dwalltime();
-    
-    //GENERA SDBM HASH
+
+    // GENERA SDBM HASH
     unsigned int hash = 0;
     for (int i = 0; i < strlen(buffer); i++)
-    	hash = buffer[i] + (hash << 6) + (hash << 16) - hash;
-    
-    
+        hash = buffer[i] + (hash << 6) + (hash << 16) - hash;
+
     int cant_bytes = strlen(buffer);
-    
+
     printf("cant bytes: %d\n", cant_bytes);
-    
-    //ENVIA CANTIDAD DE BYTES DEL MENSAJE AL SOCKET
-    n = write(sockfd,&cant_bytes,sizeof(cant_bytes));
-    if (n < 0) 
-         error("ERROR writing cant bytes message to socket");
-         
-    //ESPERA RECIBIR UNA RESPUESTA
-    n = read(sockfd,message,2);
 
-    if (n < 0) 
- 	error("ERROR reading from socket");
-	
-    //ENVIA UN MENSAJE AL SOCKET
-    n = write(sockfd,buffer,strlen(buffer));
-    if (n < 0) 
-         error("ERROR writing message to socket");
-    bzero(buffer,buf_size);
-    
-    //ESPERA RECIBIR UNA RESPUESTA
-    n = read(sockfd,message,2);
-    if (n < 0) 
-         error("ERROR reading from socket");
-        
-    	
-    //ENVIA HASH AL SOCKET
+    // ENVIA CANTIDAD DE BYTES DEL MENSAJE AL SOCKET
+    n = write(sockfd, &cant_bytes, sizeof(cant_bytes));
+    if (n < 0)
+        error("ERROR writing cant bytes message to socket");
+
+    // ESPERA RECIBIR UNA RESPUESTA
+    n = read(sockfd, message, 2);
+
+    if (n < 0)
+        error("ERROR reading from socket");
+
+    // ENVIA UN MENSAJE AL SOCKET
+    n = write(sockfd, buffer, strlen(buffer));
+    if (n < 0)
+        error("ERROR writing message to socket");
+    bzero(buffer, buf_size);
+
+    // ESPERA RECIBIR UNA RESPUESTA
+    n = read(sockfd, message, 2);
+    if (n < 0)
+        error("ERROR reading from socket");
+
+    // ENVIA HASH AL SOCKET
     printf("hash: %u\n", hash);
-    n = write(sockfd,&hash,sizeof(hash));
-    if (n < 0) 
-         error("ERROR writing to socketz");
-    bzero(buffer,buf_size);
+    n = write(sockfd, &hash, sizeof(hash));
+    if (n < 0)
+        error("ERROR writing to socketz");
+    bzero(buffer, buf_size);
 
-    //ESPERA RECIBIR UNA RESPUESTA
+    // ESPERA RECIBIR UNA RESPUESTA
     double tproc;
 
-    n = read(sockfd,&tproc,sizeof(double));
-    if (n < 0) 
-         error("ERROR reading from socket");
+    n = read(sockfd, &tproc, sizeof(double));
+    if (n < 0)
+        error("ERROR reading from socket");
 
-    //si es negativo es xq esta corrupto
+    // si es negativo es xq esta corrupto
     if (tproc < 0)
         printf("Error en la transmision del mensaje enviado\n");
 
-    //calcula abs para restar a la comuinicacion
+    // calcula abs para restar a la comuinicacion
     tproc = fabs(tproc);
 
-    //CALCULA TIEMPO FIN DE COMUNICACION
+    // CALCULA TIEMPO FIN DE COMUNICACION
     double tiempoFin = dwalltime() - tiempoInicio - tproc;
     printf("Tiempo total de comunicacion en segundos: %f\n", tiempoFin);
-    
-    
-	printf("%s\n",buffer);
+
+    printf("%s\n", buffer);
     return 0;
 }
 
 double dwalltime()
 {
-  double sec;
-  struct timeval tv;
+    double sec;
+    struct timeval tv;
 
-  gettimeofday(&tv, NULL);
-  sec = tv.tv_sec + tv.tv_usec / 1000000.0;
-  return sec;
+    gettimeofday(&tv, NULL);
+    sec = tv.tv_sec + tv.tv_usec / 1000000.0;
+    return sec;
 }

@@ -9,7 +9,6 @@
 #include <netinet/in.h>
 #include <sys/time.h>
 
-
 double dwalltime();
 
 void error(char *msg)
@@ -94,37 +93,33 @@ int main(int argc, char *argv[])
     j += n;
   } while (j < cant_bytes);
 
-
   // RESPONDE AL CLIENTE
   n = write(newsockfd, "ok", 2);
 
   // GENERA SDBM HASH
   unsigned int hash = 0;
 
-  //CALCULO TIEMPO PROCESAMIENTO HASH
+  // CALCULO TIEMPO PROCESAMIENTO HASH
   double thash_inicio = dwalltime();
-  for (int i = 0; i < strlen(buffer); i++)
+  for (int i = 0; i < cant_bytes; i++)
     hash = buffer[i] + (hash << 6) + (hash << 16) - hash;
   double thash_fin = dwalltime() - thash_inicio;
 
-  printf("hash: %d\n", hash);
-
-  bzero(buffer, buf_size);
-
   // LEE EL HASH DEL CLIENTE
   unsigned int recieved_hash;
-  n = read(newsockfd, &recieved_hash, sizeof(recieved_hash));
+  n = read(newsockfd, &recieved_hash, buf_size);
   if (n < 0)
     error("ERROR reading to socket");
 
-  printf("hash recibido %u\n", recieved_hash);
+    printf("hash calculado: %u, hash recibido %u\n", hash, recieved_hash);
 
-  if (hash != recieved_hash){
+  if (hash != recieved_hash)
+  {
     printf("El mensaje fue alterado\n");
-    thash_fin *= -1;
+    thash_fin *= -1.0;
   }
-  n = write(newsockfd, &thash_fin, sizeof(thash_fin));
 
+  n = write(newsockfd, &thash_fin, sizeof(thash_fin));
 
   return 0;
 }
