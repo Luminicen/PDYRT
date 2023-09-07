@@ -7,8 +7,7 @@
  */
 import java.io.*;
 import java.net.*;
-import java.security.*;
-import checker.MD5Checksum;;
+import checker.MD5Checksum;
 public class Client
 {
   public static void main(String[] args) throws IOException
@@ -46,21 +45,23 @@ public class Client
       buffer[j] = 'a';
     byte[] checksum = MD5Checksum.generate(buffer);
     long startTime = System.nanoTime();
+    int ok = 0;
+    long endTime;
+    long elapsedTime;
     toserver.writeInt(bufferSize);
-    long endTime = System.nanoTime();
-    long elapsedTime = endTime - startTime;
-    totalTime = totalTime + elapsedTime;
-    startTime = System.nanoTime();
+    ok=fromserver.readInt();
     toserver.write(checksum, 0, checksum.length);
-    endTime = System.nanoTime();
-    elapsedTime = endTime - startTime;
-    totalTime = totalTime + elapsedTime;
-    startTime = System.nanoTime();
+    ok=fromserver.readInt();
     toserver.write(buffer, 0, bufferSize);
+    ok=fromserver.readInt();
     endTime = System.nanoTime();
     elapsedTime = endTime - startTime;
     totalTime = totalTime + elapsedTime;
-    System.out.println("Tiempo total: "+totalTime);
+    System.out.println("Tiempo total: "+ totalTime);
+    if (ok == 0){
+      System.out.println("Se recibieron correctamente");
+      
+    }
     fromserver.close();
     toserver.close();
     socketwithserver.close();
