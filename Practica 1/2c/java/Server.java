@@ -51,9 +51,11 @@ public class Server
     /* Get the I/O streams from the connected socket */
     fromclient = new DataInputStream(connected_socket.getInputStream());
     toclient   = new DataOutputStream(connected_socket.getOutputStream());
-    int bufferSize = fromclient.readInt();
+    int bufferSize = fromclient.readInt(); 
+    toclient.writeInt(0);
     byte[] checksum = new byte[16];
     fromclient.read(checksum);
+    toclient.writeInt(0);
     byte[] buffer = new byte[bufferSize];
     int totalBytesRead = 0;
     while (totalBytesRead < bufferSize)
@@ -66,7 +68,7 @@ public class Server
           }
         totalBytesRead += bytesRead;
       }
-
+      if(MD5Checksum.isValid(checksum, buffer)){toclient.writeInt(0);} else {toclient.writeInt(1);}
       System.out.println("Validacion: " + MD5Checksum.isValid(checksum, buffer));
       System.out.println("Byetes que se leyeron: " + totalBytesRead);
         
