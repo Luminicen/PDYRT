@@ -55,7 +55,7 @@ public class Server
 
     /* Buffer to use with communications (and its length) */
     byte[] buffer;
-    buffer = new byte[1000000000];
+    buffer = new byte[10000000];
     
     /* Recv data from client */
     fromclient.read(buffer);

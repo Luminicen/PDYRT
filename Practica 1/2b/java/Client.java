@@ -42,7 +42,7 @@ public class Client
     toserver   = new DataOutputStream(socketwithserver.getOutputStream());
 
     /* Buffer to use with communications (and its length) */
-    byte[] buffer = new byte[1000000000];
+    byte[] buffer = new byte[10000000];
     
     /* Get some input from user */
     Console console  = System.console();
@@ -50,7 +50,7 @@ public class Client
 
     /* Get the bytes... */
     //buffer = "100000".getBytes("UTF-8");//inputline.getBytes();
-     for(int i=0;i<1000000000;i++){
+     for(int i=0;i<10000000;i++){
         buffer[i] = (byte)1;
     }
     /* Send read data to server */
@@ -58,7 +58,7 @@ public class Client
 
    
     /* Recv data back from server (get space) */
-    buffer = new byte[1000000000];
+    buffer = new byte[10000000];
     fromserver.read(buffer);
 
     /* Show data received from server */

@@ -74,9 +74,6 @@ int main(int argc, char *argv[])
     // GENERA MENSAJE
     memset((buffer), 'a', buf_size);
 
-    // CALCULA TIEMPO INICIO DE COMUNICACION
-    double tiempoInicio = dwalltime();
-
     // GENERA SDBM HASH
     unsigned int hash = 0;
     for (int i = 0; i < strlen(buffer); i++)
@@ -85,6 +82,9 @@ int main(int argc, char *argv[])
     int cant_bytes = strlen(buffer);
 
     printf("cant bytes: %d\n", cant_bytes);
+
+    // CALCULA TIEMPO INICIO DE COMUNICACION
+    double tiempoInicio = dwalltime();
 
     // ENVIA CANTIDAD DE BYTES DEL MENSAJE AL SOCKET
     n = write(sockfd, &cant_bytes, sizeof(cant_bytes));

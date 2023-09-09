@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
   int j = 0;
   do
   {
-    n = read(newsockfd, buffer, cant_bytes);
+    n = read(newsockfd, &buffer[j], cant_bytes);
     if (n < 0)
     {
       error("ERROR reading from socket");
