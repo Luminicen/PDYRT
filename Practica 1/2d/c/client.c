@@ -119,6 +119,10 @@ int main(int argc, char *argv[])
     double tproc;
 
     n = read(sockfd, &tproc, sizeof(double));
+    // CALCULA TIEMPO FIN DE COMUNICACION
+    double tiempoFin = dwalltime() - tiempoInicio - fabs(tproc); // calcula abs para restar a la comuinicacion
+
+    
     if (n < 0)
         error("ERROR reading from socket");
 
@@ -126,11 +130,6 @@ int main(int argc, char *argv[])
     if (tproc < 0)
         printf("Error en la transmision del mensaje enviado\n");
 
-    // calcula abs para restar a la comuinicacion
-    tproc = fabs(tproc);
-
-    // CALCULA TIEMPO FIN DE COMUNICACION
-    double tiempoFin = dwalltime() - tiempoInicio - tproc;
     printf("Tiempo total de comunicacion en segundos: %f\n", tiempoFin);
 
     printf("%s\n", buffer);
