@@ -14,9 +14,19 @@ vagrant ssh vm2 -c "gcc -o /vagrant/client /vagrant/client.c"
 #----------------------server-------------------------------
 #inicia 5 conexiones server desde vm1
 #podria poner otro for mas afuera con el tamaño de buffer pero dsp pruebo
-for port in 4000 40001 40002 40003 40004
+
+port=3999
+for size in 1000 10000 100000 1000000
 do
-	vagrant ssh vm1 -c "/vagrant/server $port 1000 &"
-	vagrant ssh vm2 -c "/vagrant/client 192.168.122.45 $port 1000 >> /vagrant/tiempo2a.txt"
-	
+	echo "--------------------------------------------" >> ./tiempo2a.txt
+	echo "tamaño de la entrada $size" >> ./tiempo2a.txt
+	echo "--------------------------------------------" >> ./tiempo2a.txt
+	for i in 1 2 3 4 5
+	do
+		port=$((port + 1))
+		echo $port
+		vagrant ssh vm1 -c "/vagrant/server $port $size" &
+		vagrant ssh vm2 -c "/vagrant/client 192.168.1.45 $port $size >> /vagrant/tiempo2a.txt"
+	done
+	sleep 3
 done

@@ -6,9 +6,9 @@ Vagrant.configure("2") do |config|
     config.vm.define ("vm%01d"  % (num + 1)) do |machine|
       machine.vm.box = "hashicorp/bionic64"
       if (num + 1 == 2) then
-      	machine.vm.network "public_network"
+      	machine.vm.network "public_network", use_dhcp_assigned_default_route: true
       else
-      	machine.vm.network "public_network", type:"static", ip:"192.168.122.45"
+      	machine.vm.network "public_network", type:"static", ip:"192.168.1.45"
       end if
       #, ip: "#{base_network}#{base_host + num}"
       machine.vm.hostname = "vm#{num+1}"
