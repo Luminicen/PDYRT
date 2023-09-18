@@ -1,0 +1,92 @@
+--------------------------------------------
+tamaño de la entrada 1000
+--------------------------------------------
+Tiempo total: 182916144
+Se recibieron correctamente
+Tiempo total: 89149422
+Se recibieron correctamente
+Tiempo total: 62825407
+Se recibieron correctamente
+Tiempo total: 54274761
+Se recibieron correctamente
+Tiempo total: 55228659
+Se recibieron correctamente
+Tiempo total: 55643090
+Se recibieron correctamente
+Tiempo total: 57232142
+Se recibieron correctamente
+Tiempo total: 56901468
+Se recibieron correctamente
+Tiempo total: 57536993
+Se recibieron correctamente
+Tiempo total: 55843619
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 10000
+--------------------------------------------
+Tiempo total: 30936500
+Se recibieron correctamente
+Tiempo total: 56674517
+Se recibieron correctamente
+Tiempo total: 57674974
+Se recibieron correctamente
+Tiempo total: 54795466
+Se recibieron correctamente
+Tiempo total: 56299845
+Se recibieron correctamente
+Tiempo total: 55977268
+Se recibieron correctamente
+Tiempo total: 57189743
+Se recibieron correctamente
+Tiempo total: 54792029
+Se recibieron correctamente
+Tiempo total: 55278364
+Se recibieron correctamente
+Tiempo total: 58360183
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 100000
+--------------------------------------------
+Tiempo total: 35560467
+Se recibieron correctamente
+Tiempo total: 61727268
+Se recibieron correctamente
+Tiempo total: 63111768
+Se recibieron correctamente
+Tiempo total: 62754856
+Se recibieron correctamente
+Tiempo total: 59722591
+Se recibieron correctamente
+Tiempo total: 59934131
+Se recibieron correctamente
+Tiempo total: 60174465
+Se recibieron correctamente
+Tiempo total: 38981779
+Se recibieron correctamente
+Tiempo total: 59857926
+Se recibieron correctamente
+Tiempo total: 61499242
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 1000000
+--------------------------------------------
+Tiempo total: 47405903
+Se recibieron correctamente
+Tiempo total: 69243236
+Se recibieron correctamente
+Tiempo total: 71192527
+Se recibieron correctamente
+Tiempo total: 42061968
+Se recibieron correctamente
+Tiempo total: 69571178
+Se recibieron correctamente
+Tiempo total: 73351553
+Se recibieron correctamente
+Tiempo total: 72953273
+Se recibieron correctamente
+Tiempo total: 65885846
+Se recibieron correctamente
+Tiempo total: 68589334
+Se recibieron correctamente
+Tiempo total: 69687676
+Se recibieron correctamente
