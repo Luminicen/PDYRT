@@ -1,26 +1,91 @@
 --------------------------------------------
 tamaño de la entrada 1000
 --------------------------------------------
---------------------------------------------
-tamaño de la entrada 1000
---------------------------------------------
-Tiempo total: 34679944
+Tiempo total: 70039776
 Se recibieron correctamente
-ERROR connecting
-ERROR connecting
-ERROR connecting
-ERROR connecting
-ERROR connecting
-ERROR connecting
-ERROR connecting
-ERROR connecting
-ERROR connecting
+Tiempo total: 99049407
+Se recibieron correctamente
+Tiempo total: 177839613
+Se recibieron correctamente
+Tiempo total: 79850506
+Se recibieron correctamente
+Tiempo total: 1262506161
+Se recibieron correctamente
+Tiempo total: 1047922437
+Se recibieron correctamente
+Tiempo total: 1374077430
+Se recibieron correctamente
+Tiempo total: 1096582447
+Se recibieron correctamente
+Tiempo total: 1235147405
+Se recibieron correctamente
+Tiempo total: 897732230
+Se recibieron correctamente
 --------------------------------------------
 tamaño de la entrada 10000
 --------------------------------------------
+Tiempo total: 675687645
+Se recibieron correctamente
+Tiempo total: 801569175
+Se recibieron correctamente
+Tiempo total: 734268292
+Se recibieron correctamente
+Tiempo total: 682423965
+Se recibieron correctamente
+Tiempo total: 64852456
+Se recibieron correctamente
+Tiempo total: 70275178
+Se recibieron correctamente
+Tiempo total: 46405315
+Se recibieron correctamente
+Tiempo total: 714500295
+Se recibieron correctamente
+Tiempo total: 704559992
+Se recibieron correctamente
+Tiempo total: 651620851
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 100000
+--------------------------------------------
+Tiempo total: 51874999
+Se recibieron correctamente
+Tiempo total: 582451061
+Se recibieron correctamente
+Tiempo total: 518799439
+Se recibieron correctamente
+Tiempo total: 66283844
+Se recibieron correctamente
+Tiempo total: 85390539
+Se recibieron correctamente
+Tiempo total: 51334471
+Se recibieron correctamente
+Tiempo total: 51558519
+Se recibieron correctamente
+Tiempo total: 90981408
+Se recibieron correctamente
+Tiempo total: 62236453
+Se recibieron correctamente
+Tiempo total: 81772147
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 1000000
+--------------------------------------------
+Tiempo total: 93675377
+Se recibieron correctamente
+Tiempo total: 95500967
+Se recibieron correctamente
+Tiempo total: 84086735
+Se recibieron correctamente
+Tiempo total: 113790468
+Se recibieron correctamente
+Tiempo total: 79349880
+Se recibieron correctamente
 ERROR connecting
-ERROR connecting
-ERROR connecting
-ERROR connecting
-ERROR connecting
-ERROR connecting
+Tiempo total: 104734142
+Se recibieron correctamente
+Tiempo total: 117098833
+Se recibieron correctamente
+Tiempo total: 83837061
+Se recibieron correctamente
+Tiempo total: 89907491
+Se recibieron correctamente
