@@ -3,10 +3,6 @@
 #levanta las vms en el directorio actual (provider el file de server.c y client.c)
 vagrant up
 
-#compila cliente y servidor
-gcc -o server server.c
-gcc -o client client.c
-
 vagrant ssh vm1 -c "gcc -o /vagrant/server /vagrant/server.c"
 vagrant ssh vm2 -c "gcc -o /vagrant/client /vagrant/client.c"
 
@@ -21,7 +17,7 @@ do
 	echo "--------------------------------------------" >> ./tiempo2a.txt
 	echo "tamaño de la entrada $size" >> ./tiempo2a.txt
 	echo "--------------------------------------------" >> ./tiempo2a.txt
-	for i in 1 2 3 4 5
+	for i in 1 2 3 4 5 6 7 8 9 10
 	do
 		port=$((port + 1))
 		echo $port
