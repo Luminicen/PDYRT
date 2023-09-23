@@ -1,4 +1,0 @@
-tamaño de la entrada 1000
-tamaño de la entrada 10000
-tamaño de la entrada 100000
-tamaño de la entrada 1000000

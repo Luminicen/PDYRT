@@ -1,0 +1,26 @@
+--------------------------------------------
+tamaño de la entrada 1000
+--------------------------------------------
+--------------------------------------------
+tamaño de la entrada 1000
+--------------------------------------------
+Tiempo total: 34679944
+Se recibieron correctamente
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+--------------------------------------------
+tamaño de la entrada 10000
+--------------------------------------------
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting

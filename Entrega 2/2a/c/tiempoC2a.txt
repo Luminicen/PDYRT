@@ -1,4 +1,5 @@
 --------------------------------------------
+tamaño de la entrada 1000
 --------------------------------------------
 tamaño de buffer: 1000 
 cant bytes: 1006
@@ -51,6 +52,7 @@ hash: 195352075
 Tiempo total de comunicacion en segundos: 0.000450
 
 --------------------------------------------
+tamaño de la entrada 10000
 --------------------------------------------
 tamaño de buffer: 10000 
 cant bytes: 10002
@@ -103,6 +105,7 @@ hash: 2614437399
 Tiempo total de comunicacion en segundos: 0.000326
 
 --------------------------------------------
+tamaño de la entrada 100000
 --------------------------------------------
 tamaño de buffer: 100000 
 cant bytes: 100003
@@ -155,6 +158,7 @@ hash: 4291411355
 Tiempo total de comunicacion en segundos: 0.001120
 
 --------------------------------------------
+tamaño de la entrada 1000000
 --------------------------------------------
 tamaño de buffer: 1000000 
 cant bytes: 1000003

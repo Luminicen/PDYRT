@@ -19,7 +19,7 @@ port=4999
 for size in 1000 10000 100000 1000000
 do
 	echo "--------------------------------------------" >> ./tiempoC2a.txt
-	echo "tamaño de la entrada $size" >> ./tiempo2a.txt
+	echo "tamaño de la entrada $size" >> ./tiempoC2a.txt
 	echo "--------------------------------------------" >> ./tiempoC2a.txt
 	for i in 1 2 3 4 5 6 7 8 9 10
 	do
