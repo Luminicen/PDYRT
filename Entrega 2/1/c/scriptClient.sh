@@ -3,6 +3,8 @@
 
 #----------------------client-------------------------------
 
+gcc -o client client.c
+
 echo -n "Ingrese direccion IP del Servidor"
 
 read ip
