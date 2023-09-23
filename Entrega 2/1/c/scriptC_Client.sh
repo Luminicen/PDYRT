@@ -5,7 +5,7 @@
 
 gcc -o client client.c
 
-echo -n "Ingrese direccion IP del Servidor"
+printf "Ingrese direccion IP del Servidor:\n"
 
 read ip
 
@@ -18,7 +18,7 @@ do
 	for i in 1 2 3 4 5 6 7 8 9 10
 	do
 		port=$((port + 1))
-		./cliente $ip $port $size >> ./tiempo1.txt
+		./client $ip $port $size >> ./tiempoC1.txt
 	done
 	sleep 3
 done
