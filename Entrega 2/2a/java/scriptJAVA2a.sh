@@ -3,6 +3,7 @@
 #levanta las vms en el directorio actual (provider el file de server.c y client.c)
 vagrant up
 
+ip=$(vagrant ssh vm1 -c "hostname -I" | awk '{print $2}') 
 
 #----------------------server-------------------------------
 #inicia 5 conexiones server desde vm1
@@ -23,6 +24,6 @@ printf "\n"
 echo $1
 printf "\n"
 vagrant ssh vm1 -c "cd /vagrant; java Server.java $port" &
-vagrant ssh vm2 -c "cd /vagrant; java Client.java 192.168.1.45 $port $size >> /vagrant/tiempoJAVA2a.txt"
+vagrant ssh vm2 -c "cd /vagrant; java Client.java $ip $port $size >> /vagrant/tiempoJAVA2a.txt"
 done
 done

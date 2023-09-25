@@ -11,9 +11,7 @@ vagrant ssh vm2 -c "gcc -o /vagrant/client /vagrant/client.c"
 #inicia 5 conexiones server desde vm1
 #podria poner otro for mas afuera con el tamaño de buffer pero dsp pruebo
 
-printf "Ingrese direccion IP del Servidor:\n"
-
-read ip
+ip=$(vagrant ssh vm1 -c "hostname -I" | awk '{print $2}') 
 
 port=4999
 for size in 1000 10000 100000 1000000

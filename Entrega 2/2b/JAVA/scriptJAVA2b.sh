@@ -2,9 +2,10 @@
 
 #levanta la vm en el directorio actual (provider el file de server.c y client.c)
 vagrant up
+ip=$(vagrant ssh -c "hostname -I" | awk '{print $2}') 
 
 
-port=4999
+port=5999
 for size in 1000 10000 100000 1000000
 do
 echo "--------------------------------------------" >> ./tiempoJAVA2b.txt
@@ -16,9 +17,8 @@ port=$((port + 1))
 printf "\n"
 echo $port
 printf "\n"
-echo $1
-printf "\n"
-vagrant ssh vm -c "cd /vagrant; java Server.java $port" &
-java Client.java 192.168.1.45 $port $size >> /vagrant/tiempoJAVA2b.txt
+vagrant ssh -c "cd /vagrant; java Server.java $port" &
+sleep 10
+java Client.java $ip $port $size >> ./tiempoJAVA2b.txt
 done
 done

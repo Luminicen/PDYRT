@@ -3,19 +3,18 @@
 #levanta la vm en el directorio actual
 vagrant up
 
-vagrant ssh vm -c "gcc -o /vagrant/server /vagrant/server.c"
+vagrant ssh -c "gcc -o /vagrant/server /vagrant/server.c"
 gcc -o client client.c
+
 
 
 #----------------------server-------------------------------
 #inicia 5 conexiones server desde vm1
 #podria poner otro for mas afuera con el tamaño de buffer pero dsp pruebo
 
-printf "Ingrese direccion IP del Servidor:\n"
+ip=$(vagrant ssh -c "hostname -I" | awk '{print $2}') 
 
-read ip
-
-port=4999
+port=3999
 for size in 1000 10000 100000 1000000
 do
 	echo "--------------------------------------------" >> ./tiempoC2b.txt
@@ -24,8 +23,9 @@ do
 	for i in 1 2 3 4 5 6 7 8 9 10
 	do
 		port=$((port + 1))
-		echo $port
-		vagrant ssh vm -c "/vagrant/server $port $size" &
+		echo -n $port
+		vagrant ssh -c "/vagrant/server $port $size" &
+		sleep 3
 		./client $ip $port $size >> tiempoC2b.txt
 	done
 	sleep 3
