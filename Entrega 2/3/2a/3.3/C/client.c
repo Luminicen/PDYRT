@@ -86,6 +86,9 @@ int main(int argc, char *argv[])
     // CALCULA TIEMPO INICIO DE COMUNICACION
     double tiempoInicio = dwalltime();
 
+    //sleep luego de iniciar la comunicacion
+    sleep(10);
+
     // ENVIA CANTIDAD DE BYTES DEL MENSAJE AL SOCKET
     n = write(sockfd, &cant_bytes, sizeof(cant_bytes));
     if (n < 0)

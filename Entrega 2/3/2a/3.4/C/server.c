@@ -76,6 +76,9 @@ int main(int argc, char *argv[])
 
   bzero(buffer, buf_size);
 
+  //sleep antes de reponder al cliente
+  sleep(10);
+
   // RESPONDE AL CLIENTE
   n = write(newsockfd, "ok", 2);
   bzero(buffer, buf_size);

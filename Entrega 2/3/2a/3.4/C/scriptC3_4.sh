@@ -13,18 +13,18 @@ vagrant ssh vm2 -c "gcc -o /vagrant/client /vagrant/client.c"
 
 ip=$(vagrant ssh vm1 -c "hostname -I" | awk '{print $2}') 
 
-port=4999
+port=5999
 for size in 1000 10000 100000 1000000
 do
-	echo "--------------------------------------------" >> ./tiempoC2a.txt
-	echo "tamaño de la entrada $size" >> ./tiempoC2a.txt
-	echo "--------------------------------------------" >> ./tiempoC2a.txt
+	echo "--------------------------------------------" >> ./tiempoC3_4.txt
+	echo "tamaño de la entrada $size" >> ./tiempoC3_4.txt
+	echo "--------------------------------------------" >> ./tiempoC3_4.txt
 	for i in 1 2 3 4 5 6 7 8 9 10
 	do
 		port=$((port + 1))
 		echo $port
 		vagrant ssh vm1 -c "/vagrant/server $port $size" &
-		vagrant ssh vm2 -c "/vagrant/client $ip $port $size >> /vagrant/tiempoC2a.txt"
+		vagrant ssh vm2 -c "/vagrant/client $ip $port $size >> /vagrant/tiempoC3_4.txt"
 	done
 	sleep 3
 done

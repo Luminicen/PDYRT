@@ -86,10 +86,17 @@ int main(int argc, char *argv[])
     // CALCULA TIEMPO INICIO DE COMUNICACION
     double tiempoInicio = dwalltime();
 
+    //sleep 1
+    sleep(10);
+
     // ENVIA CANTIDAD DE BYTES DEL MENSAJE AL SOCKET
     n = write(sockfd, &cant_bytes, sizeof(cant_bytes));
     if (n < 0)
         error("ERROR writing cant bytes message to socket");
+
+    //sleep 2
+    sleep(10);
+
 
     // ESPERA RECIBIR UNA RESPUESTA
     n = read(sockfd, message, 2);
@@ -97,11 +104,18 @@ int main(int argc, char *argv[])
     if (n < 0)
         error("ERROR reading from socket");
 
+    //sleep 3
+    sleep(10);
+
+
     // ENVIA UN MENSAJE AL SOCKET
     n = write(sockfd, buffer, strlen(buffer));
     if (n < 0)
         error("ERROR writing message to socket");
     bzero(buffer, buf_size);
+
+    //sleep 4
+    sleep(10);
 
     // ESPERA RECIBIR UNA RESPUESTA
     n = read(sockfd, message, 2);
@@ -110,6 +124,10 @@ int main(int argc, char *argv[])
 
     // ENVIA HASH AL SOCKET
     printf("hash: %u\n", hash);
+
+    //sleep 5
+    sleep(10);
+
     n = write(sockfd, &hash, sizeof(hash));
     if (n < 0)
         error("ERROR writing to socketz");
@@ -117,6 +135,9 @@ int main(int argc, char *argv[])
 
     // ESPERA RECIBIR UNA RESPUESTA
     double tproc;
+
+    //sleep 6
+    sleep(10);
 
     n = read(sockfd, &tproc, sizeof(double));
     // CALCULA TIEMPO FIN DE COMUNICACION

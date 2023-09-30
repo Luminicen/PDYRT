@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     bzero(buffer, buf_size);
 
     //sleep antes de iniciar la comunicacion
-    //sleep(10);
+    sleep(10);
 
     //**********************************************//
 

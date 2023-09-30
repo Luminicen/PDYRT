@@ -1,0 +1,192 @@
+--------------------------------------------
+tamaño de la entrada 1000
+--------------------------------------------
+tamaño de buffer: 1000 
+cant bytes: 1006
+hash: 3988939335
+Tiempo total de comunicacion en segundos: 10.002923
+
+tamaño de buffer: 1000 
+cant bytes: 1006
+hash: 4039566471
+Tiempo total de comunicacion en segundos: 10.005062
+
+tamaño de buffer: 1000 
+cant bytes: 1006
+hash: 505402729
+Tiempo total de comunicacion en segundos: 10.003435
+
+tamaño de buffer: 1000 
+cant bytes: 1006
+hash: 2841348849
+Tiempo total de comunicacion en segundos: 10.002873
+
+tamaño de buffer: 1000 
+cant bytes: 1006
+hash: 1462263463
+Tiempo total de comunicacion en segundos: 10.003332
+
+tamaño de buffer: 1000 
+cant bytes: 1006
+hash: 1053746342
+Tiempo total de comunicacion en segundos: 10.002505
+
+tamaño de buffer: 1000 
+cant bytes: 1006
+hash: 1933929759
+Tiempo total de comunicacion en segundos: 10.003020
+
+tamaño de buffer: 1000 
+cant bytes: 1006
+hash: 540921770
+Tiempo total de comunicacion en segundos: 10.005332
+
+tamaño de buffer: 1000 
+tamaño de buffer: 1000 
+cant bytes: 1006
+hash: 3293342648
+Tiempo total de comunicacion en segundos: 10.002129
+
+--------------------------------------------
+tamaño de la entrada 10000
+--------------------------------------------
+tamaño de buffer: 10000 
+cant bytes: 10002
+hash: 2614437399
+Tiempo total de comunicacion en segundos: 10.001846
+
+tamaño de buffer: 10000 
+cant bytes: 10002
+hash: 2614437399
+Tiempo total de comunicacion en segundos: 10.002566
+
+tamaño de buffer: 10000 
+cant bytes: 10002
+hash: 2614437399
+Tiempo total de comunicacion en segundos: 10.000940
+
+tamaño de buffer: 10000 
+cant bytes: 10002
+hash: 2614437399
+Tiempo total de comunicacion en segundos: 10.003409
+
+tamaño de buffer: 10000 
+cant bytes: 10002
+hash: 2614437399
+Tiempo total de comunicacion en segundos: 10.002430
+
+tamaño de buffer: 10000 
+tamaño de buffer: 10000 
+cant bytes: 10002
+hash: 2614437399
+Tiempo total de comunicacion en segundos: 10.002355
+
+tamaño de buffer: 10000 
+cant bytes: 10002
+hash: 2614437399
+Tiempo total de comunicacion en segundos: 10.002141
+
+tamaño de buffer: 10000 
+cant bytes: 10002
+hash: 2614437399
+Tiempo total de comunicacion en segundos: 10.002972
+
+tamaño de buffer: 10000 
+cant bytes: 10002
+hash: 2614437399
+Tiempo total de comunicacion en segundos: 10.002553
+
+--------------------------------------------
+tamaño de la entrada 100000
+--------------------------------------------
+tamaño de buffer: 100000 
+cant bytes: 100003
+hash: 4291411355
+Tiempo total de comunicacion en segundos: 10.005801
+
+tamaño de buffer: 100000 
+cant bytes: 100003
+hash: 4291411355
+Tiempo total de comunicacion en segundos: 10.004605
+
+tamaño de buffer: 100000 
+cant bytes: 100003
+hash: 4291411355
+Tiempo total de comunicacion en segundos: 10.004356
+
+tamaño de buffer: 100000 
+cant bytes: 100003
+hash: 4291411355
+Tiempo total de comunicacion en segundos: 10.004009
+
+tamaño de buffer: 100000 
+cant bytes: 100003
+hash: 4291411355
+Tiempo total de comunicacion en segundos: 10.001922
+
+tamaño de buffer: 100000 
+cant bytes: 100003
+hash: 4291411355
+Tiempo total de comunicacion en segundos: 10.005722
+
+tamaño de buffer: 100000 
+cant bytes: 100003
+hash: 4291411355
+Tiempo total de comunicacion en segundos: 10.002831
+
+tamaño de buffer: 100000 
+cant bytes: 100003
+hash: 4291411355
+Tiempo total de comunicacion en segundos: 10.004537
+
+tamaño de buffer: 100000 
+tamaño de buffer: 100000 
+cant bytes: 100003
+hash: 4291411355
+Tiempo total de comunicacion en segundos: 10.005505
+
+--------------------------------------------
+tamaño de la entrada 1000000
+--------------------------------------------
+tamaño de buffer: 1000000 
+cant bytes: 1000003
+hash: 868657293
+Tiempo total de comunicacion en segundos: 10.019456
+
+tamaño de buffer: 1000000 
+tamaño de buffer: 1000000 
+cant bytes: 1000003
+hash: 868657293
+Tiempo total de comunicacion en segundos: 10.017589
+
+tamaño de buffer: 1000000 
+cant bytes: 1000003
+hash: 868657293
+Tiempo total de comunicacion en segundos: 10.018164
+
+tamaño de buffer: 1000000 
+cant bytes: 1000003
+hash: 868657293
+Tiempo total de comunicacion en segundos: 10.010354
+
+tamaño de buffer: 1000000 
+cant bytes: 1000003
+hash: 868657293
+Tiempo total de comunicacion en segundos: 10.017547
+
+tamaño de buffer: 1000000 
+cant bytes: 1000003
+hash: 868657293
+Tiempo total de comunicacion en segundos: 10.019308
+
+tamaño de buffer: 1000000 
+tamaño de buffer: 1000000 
+cant bytes: 1000003
+hash: 868657293
+Tiempo total de comunicacion en segundos: 10.010696
+
+tamaño de buffer: 1000000 
+cant bytes: 1000003
+hash: 868657293
+Tiempo total de comunicacion en segundos: 10.013345
+

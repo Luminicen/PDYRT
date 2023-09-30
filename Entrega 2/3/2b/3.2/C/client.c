@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
     // TOMA EL NUMERO DE PUERTO DE LOS ARGUMENTOS
     portno = atoi(argv[2]);
 
+
     // CREA EL FILE DESCRIPTOR DEL SOCKET PARA LA CONEXION
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     // AF_INET - FAMILIA DEL PROTOCOLO - IPV4 PROTOCOLS INTERNET
@@ -68,6 +69,9 @@ int main(int argc, char *argv[])
         error("ERROR connecting");
 
     bzero(buffer, buf_size);
+
+    //sleep antes de iniciar la comunicacion
+    sleep(10);
 
     //**********************************************//
 
