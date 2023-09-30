@@ -1,11 +1,15 @@
 #!/bin/bash
 
-#levanta la vm en el directorio actual (provider el file de server.c y client.c)
+#levanta las vms en el directorio actual (provider el file de server.c y client.c)
 vagrant up
-ip=$(hostname -I | awk '{print $1}') 
 
+ip=$(vagrant ssh vm1 -c "hostname -I" | awk '{print $2}') 
 
-port=3999
+#----------------------server-------------------------------
+#inicia 5 conexiones server desde vm1
+#podria poner otro for mas afuera con el tamaño de buffer pero dsp pruebo
+
+port=4999
 for size in 1000 10000 100000 1000000
 do
 echo "--------------------------------------------" >> ./tiempoJAVA3_5.txt
@@ -17,7 +21,9 @@ port=$((port + 1))
 printf "\n"
 echo $port
 printf "\n"
-java Server.java $port &
-vagrant ssh -c "cd /vagrant; java Client.java $ip $port $size >> /vagrant/tiempoJAVA3_5.txt" 
+echo $1
+printf "\n"
+vagrant ssh vm1 -c "cd /vagrant; java Server.java $port" &
+vagrant ssh vm2 -c "cd /vagrant; java Client.java $ip $port $size >> /vagrant/tiempoJAVA3_5.txt"
 done
 done

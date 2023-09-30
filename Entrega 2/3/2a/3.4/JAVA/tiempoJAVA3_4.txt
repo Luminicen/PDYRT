@@ -1,0 +1,67 @@
+--------------------------------------------
+tamaño de la entrada 1000
+--------------------------------------------
+Tiempo total: 10063355509
+Se recibieron correctamente
+Tiempo total: 10039375496
+Se recibieron correctamente
+Tiempo total: 10030676777
+Se recibieron correctamente
+Tiempo total: 10031681244
+Se recibieron correctamente
+Tiempo total: 10028675759
+Se recibieron correctamente
+ERROR connecting
+Tiempo total: 10032899238
+Se recibieron correctamente
+Tiempo total: 10028916571
+Se recibieron correctamente
+Tiempo total: 10040753924
+Se recibieron correctamente
+Tiempo total: 10031308895
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 10000
+--------------------------------------------
+Tiempo total: 10040965051
+Se recibieron correctamente
+Tiempo total: 10041739226
+Se recibieron correctamente
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+Tiempo total: 10040406214
+Se recibieron correctamente
+Tiempo total: 10032282852
+Se recibieron correctamente
+Tiempo total: 10041409299
+Se recibieron correctamente
+Tiempo total: 10043597469
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 100000
+--------------------------------------------
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+--------------------------------------------
+tamaño de la entrada 1000000
+--------------------------------------------
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting

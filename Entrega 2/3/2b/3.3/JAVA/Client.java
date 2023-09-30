@@ -46,7 +46,14 @@ public class Client
     byte[] checksum = MD5Checksum.generate(buffer);
     long startTime = System.nanoTime();
     //sleep luego de iniciar el tiempo la comunicacion
-	sleep(10);
+    try
+    {
+		sleep(10*1000);
+	}
+	catch (Exception e) 
+	{
+		System.out.println(e);
+	}
     int ok = 0;
     long endTime;
     long elapsedTime;

@@ -53,7 +53,14 @@ public class Server
     toclient   = new DataOutputStream(connected_socket.getOutputStream());
     int bufferSize = fromclient.readInt(); 
     //sleep antes de responder a proceso client
-	sleep(10);
+  	try
+    {
+  		Thread.sleep(10*1000);
+  	}
+  	catch (Exception e)
+    { 
+      System.out.println(e);
+    }
     toclient.writeInt(0);
     byte[] checksum = new byte[16];
     fromclient.read(checksum);

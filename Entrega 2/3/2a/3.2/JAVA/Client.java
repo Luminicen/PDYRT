@@ -20,7 +20,14 @@ public class Client
     }
     
     //sleep antes de la comunicacion
-	sleep(10);
+  	try
+    {
+  		Thread.sleep(10*1000);
+  	}
+  	catch (Exception e)
+    { 
+      System.out.println(e);
+    }
 
     /* The socket to connect to the echo server */
     Socket socketwithserver = null;

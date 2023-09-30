@@ -1,23 +1,32 @@
+#base_network = "192.168.1."
+#base_host = 100
+
 Vagrant.configure("2") do |config|
-  # Base box, a simple/reduced one 
-  config.vm.box = "hashicorp/bionic64"
-  config.vm.network "public_network"
+  2.times do |num|
+    config.vm.define ("vm%01d"  % (num + 1)) do |machine|
+      machine.vm.box = "hashicorp/bionic64"
+      if (num + 1 == 2) then
+      	machine.vm.network "public_network", use_dhcp_assigned_default_route: true
+      else
+      	machine.vm.network "public_network", type:"static", ip:"192.168.1.45"
+      end if
+      #, ip: "#{base_network}#{base_host + num}"
+      machine.vm.hostname = "vm#{num+1}"
 
-  # Set memory size
-  config.vm.provider "virtualbox" do |vb|
-    vb.memory = "512"
-    vb.name = "vm"
+      machine.vm.provider "virtualbox" do |vb|
+        vb.memory = "512"
+      end
+
+      machine.vm.provision "shell", inline: <<-SHELL
+        # Get updated urls/packages sources? & tools
+        apt-get update
+
+        # Get several software packages
+        apt-get install -y net-tools debconf-utils joe zip libc-dev-bin build-essential openjdk-17-jdk openjdk-17-jre
+
+        # The alias for ls
+        grep -q "alias ls='ls -la'" /home/vagrant/.bashrc || echo -e "\\nalias ls='ls -la'" >> /home/vagrant/.bashrc
+      SHELL
+    end
   end
-
-  # Set hostname
-  config.vm.hostname = "vm"
-
-  config.vm.provision "shell", inline: <<-SHELL
-    # Get updated urls/packages sources? & tools
-    apt-get update
-    apt-get install -y net-tools debconf-utils joe zip libc-dev-bin build-essential nodejs npm openjdk-17-jdk openjdk-17-jre
-
-    # The alias for ls
-    grep -q "alias ls='ls -la'" /home/vagrant/.bashrc || echo -e "\\nalias ls='ls -la'" >> /home/vagrant/.bashrc
-  SHELL
 end
