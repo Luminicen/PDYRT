@@ -1,0 +1,92 @@
+--------------------------------------------
+tamaño de la entrada 1000
+--------------------------------------------
+Tiempo total: 10024473184
+Se recibieron correctamente
+Tiempo total: 10017387320
+Se recibieron correctamente
+Tiempo total: 10017647432
+Se recibieron correctamente
+Tiempo total: 10022150435
+Se recibieron correctamente
+Tiempo total: 10017430844
+Se recibieron correctamente
+Tiempo total: 10022116373
+Se recibieron correctamente
+Tiempo total: 10023350422
+Se recibieron correctamente
+Tiempo total: 10023703844
+Se recibieron correctamente
+Tiempo total: 10022994873
+Se recibieron correctamente
+Tiempo total: 10020582330
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 10000
+--------------------------------------------
+Tiempo total: 10024839810
+Se recibieron correctamente
+Tiempo total: 10024789112
+Se recibieron correctamente
+Tiempo total: 10021812717
+Se recibieron correctamente
+Tiempo total: 10021447433
+Se recibieron correctamente
+Tiempo total: 10022291705
+Se recibieron correctamente
+Tiempo total: 10018902412
+Se recibieron correctamente
+Tiempo total: 10023853731
+Se recibieron correctamente
+Tiempo total: 10025047223
+Se recibieron correctamente
+Tiempo total: 10024240833
+Se recibieron correctamente
+Tiempo total: 10024450888
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 100000
+--------------------------------------------
+Tiempo total: 10023489368
+Se recibieron correctamente
+Tiempo total: 10027807630
+Se recibieron correctamente
+Tiempo total: 10030444279
+Se recibieron correctamente
+Tiempo total: 10027712636
+Se recibieron correctamente
+Tiempo total: 10029279298
+Se recibieron correctamente
+Tiempo total: 10026754183
+Se recibieron correctamente
+Tiempo total: 10030012498
+Se recibieron correctamente
+Tiempo total: 10024701050
+Se recibieron correctamente
+Tiempo total: 10023711799
+Se recibieron correctamente
+Tiempo total: 10030304838
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 1000000
+--------------------------------------------
+Tiempo total: 10033542187
+Se recibieron correctamente
+Tiempo total: 10036848551
+Se recibieron correctamente
+Tiempo total: 10030033994
+Se recibieron correctamente
+Tiempo total: 10036729998
+Se recibieron correctamente
+Tiempo total: 10036223629
+Se recibieron correctamente
+Tiempo total: 10036996508
+Se recibieron correctamente
+Tiempo total: 10041048716
+Se recibieron correctamente
+Tiempo total: 10037684824
+Se recibieron correctamente
+Tiempo total: 10035031642
+Se recibieron correctamente
+Tiempo total: 10031266608
+Se recibieron correctamente

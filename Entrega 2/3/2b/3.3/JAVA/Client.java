@@ -48,7 +48,7 @@ public class Client
     //sleep luego de iniciar el tiempo la comunicacion
     try
     {
-		sleep(10*1000);
+		Thread.sleep(10*1000);
 	}
 	catch (Exception e) 
 	{

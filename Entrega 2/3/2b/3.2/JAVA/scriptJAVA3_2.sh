@@ -5,7 +5,7 @@ vagrant up
 ip=$(hostname -I | awk '{print $1}') 
 
 
-port=3999
+port=5999
 for size in 1000 10000 100000 1000000
 do
 echo "--------------------------------------------" >> ./tiempoJAVA3_2.txt
@@ -18,6 +18,7 @@ printf "\n"
 echo $port
 printf "\n"
 java Server.java $port &
+sleep 2
 vagrant ssh -c "cd /vagrant; java Client.java $ip $port $size >> /vagrant/tiempoJAVA3_2.txt" 
 done
 done

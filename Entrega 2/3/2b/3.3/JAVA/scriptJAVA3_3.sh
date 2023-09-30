@@ -5,7 +5,7 @@ vagrant up
 ip=$(hostname -I | awk '{print $1}') 
 
 
-port=3999
+port=7999
 for size in 1000 10000 100000 1000000
 do
 echo "--------------------------------------------" >> ./tiempoJAVA3_3.txt

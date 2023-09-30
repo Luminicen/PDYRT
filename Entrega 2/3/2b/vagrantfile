@@ -6,11 +6,11 @@ Vagrant.configure("2") do |config|
   # Set memory size
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "512"
-    vb.name = "vm3b3"
+    vb.name = "vm3b"
   end
 
   # Set hostname
-  config.vm.hostname = "vm3b3"
+  config.vm.hostname = "vm3b"
 
   config.vm.provision "shell", inline: <<-SHELL
     # Get updated urls/packages sources? & tools
