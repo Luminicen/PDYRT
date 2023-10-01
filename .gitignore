@@ -11,3 +11,5 @@
 
 # Compiled class file
 *.class
+
+.vagrant
