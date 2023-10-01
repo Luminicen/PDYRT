@@ -1,6 +1,7 @@
 --------------------------------------------
 tamaño de la entrada 1000
 --------------------------------------------
+<<<<<<< HEAD
 Tiempo total: 10065430189
 Se recibieron correctamente
 ERROR connecting
@@ -53,3 +54,94 @@ ERROR connecting
 ERROR connecting
 ERROR connecting
 ERROR connecting
+=======
+Tiempo total: 10043160475
+Se recibieron correctamente
+Tiempo total: 10038302486
+Se recibieron correctamente
+Tiempo total: 10040630370
+Se recibieron correctamente
+Tiempo total: 10040749470
+Se recibieron correctamente
+Tiempo total: 10039524594
+Se recibieron correctamente
+Tiempo total: 10039569519
+Se recibieron correctamente
+Tiempo total: 10581457056
+Se recibieron correctamente
+Tiempo total: 10029784908
+Se recibieron correctamente
+Tiempo total: 10042596105
+Se recibieron correctamente
+Tiempo total: 10041536737
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 10000
+--------------------------------------------
+Tiempo total: 10042808992
+Se recibieron correctamente
+Tiempo total: 10043750186
+Se recibieron correctamente
+Tiempo total: 10039755866
+Se recibieron correctamente
+Tiempo total: 10034218458
+Se recibieron correctamente
+Tiempo total: 10034058575
+Se recibieron correctamente
+Tiempo total: 10035646051
+Se recibieron correctamente
+Tiempo total: 10041227518
+Se recibieron correctamente
+Tiempo total: 10032155633
+Se recibieron correctamente
+Tiempo total: 10034669789
+Se recibieron correctamente
+Tiempo total: 10037213516
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 100000
+--------------------------------------------
+Tiempo total: 10040041342
+Se recibieron correctamente
+Tiempo total: 10048907288
+Se recibieron correctamente
+Tiempo total: 10052901628
+Se recibieron correctamente
+Tiempo total: 10033330621
+Se recibieron correctamente
+Tiempo total: 10042909822
+Se recibieron correctamente
+Tiempo total: 10044033579
+Se recibieron correctamente
+Tiempo total: 10047458682
+Se recibieron correctamente
+Tiempo total: 10045364642
+Se recibieron correctamente
+Tiempo total: 10044013744
+Se recibieron correctamente
+Tiempo total: 10053047617
+Se recibieron correctamente
+--------------------------------------------
+tamaño de la entrada 1000000
+--------------------------------------------
+Tiempo total: 10054415403
+Se recibieron correctamente
+Tiempo total: 10056282320
+Se recibieron correctamente
+Tiempo total: 10048218575
+Se recibieron correctamente
+Tiempo total: 10063165524
+Se recibieron correctamente
+Tiempo total: 10054697282
+Se recibieron correctamente
+Tiempo total: 10054983191
+Se recibieron correctamente
+Tiempo total: 10059911829
+Se recibieron correctamente
+Tiempo total: 10040636074
+Se recibieron correctamente
+Tiempo total: 10060227299
+Se recibieron correctamente
+Tiempo total: 10071632024
+Se recibieron correctamente
+>>>>>>> mari

@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
       if (num + 1 == 2) then
       	machine.vm.network "public_network", use_dhcp_assigned_default_route: true
       else
-      	machine.vm.network "public_network", type:"static", ip:"192.168.1.45"
+      	machine.vm.network "public_network"
       end if
       #, ip: "#{base_network}#{base_host + num}"
       machine.vm.hostname = "vm#{num+1}"
