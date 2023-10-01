@@ -4,52 +4,52 @@ tamaño de la entrada 1000
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 3527223086
-Tiempo total de comunicacion en segundos: 10.001750
+Tiempo total de comunicacion en segundos: 10,001750
 
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 4181589372
-Tiempo total de comunicacion en segundos: 10.001911
+Tiempo total de comunicacion en segundos: 10,001911
 
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 578172055
-Tiempo total de comunicacion en segundos: 10.001762
+Tiempo total de comunicacion en segundos: 10,001762
 
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 2672346535
-Tiempo total de comunicacion en segundos: 10.002113
+Tiempo total de comunicacion en segundos: 10,002113
 
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 2320426670
-Tiempo total de comunicacion en segundos: 10.002101
+Tiempo total de comunicacion en segundos: 10,002101
 
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 3588214408
-Tiempo total de comunicacion en segundos: 10.002241
+Tiempo total de comunicacion en segundos: 10,002241
 
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 462676237
-Tiempo total de comunicacion en segundos: 10.001713
+Tiempo total de comunicacion en segundos: 10,001713
 
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 1451275720
-Tiempo total de comunicacion en segundos: 10.002283
+Tiempo total de comunicacion en segundos: 10,002283
 
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 4284629313
-Tiempo total de comunicacion en segundos: 10.001631
+Tiempo total de comunicacion en segundos: 10,001631
 
 tamaño de buffer: 1000 
 cant bytes: 1006
 hash: 833584013
-Tiempo total de comunicacion en segundos: 10.001656
+Tiempo total de comunicacion en segundos: 10,001656
 
 --------------------------------------------
 tamaño de la entrada 10000
@@ -57,52 +57,52 @@ tamaño de la entrada 10000
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.002204
+Tiempo total de comunicacion en segundos: 10,002204
 
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.002127
+Tiempo total de comunicacion en segundos: 10,002127
 
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.000500
+Tiempo total de comunicacion en segundos: 10,000500
 
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.001276
+Tiempo total de comunicacion en segundos: 10,001276
 
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.000953
+Tiempo total de comunicacion en segundos: 10,000953
 
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.001307
+Tiempo total de comunicacion en segundos: 10,001307
 
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.000840
+Tiempo total de comunicacion en segundos: 10,000840
 
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.000360
+Tiempo total de comunicacion en segundos: 10,000360
 
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.001334
+Tiempo total de comunicacion en segundos: 10,001334
 
 tamaño de buffer: 10000 
 cant bytes: 10002
 hash: 2614437399
-Tiempo total de comunicacion en segundos: 10.001321
+Tiempo total de comunicacion en segundos: 10,001321
 
 --------------------------------------------
 tamaño de la entrada 100000
@@ -110,52 +110,52 @@ tamaño de la entrada 100000
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.002145
+Tiempo total de comunicacion en segundos: 10,002145
 
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.002011
+Tiempo total de comunicacion en segundos: 10,002011
 
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.001923
+Tiempo total de comunicacion en segundos: 10,001923
 
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.000626
+Tiempo total de comunicacion en segundos: 10,000626
 
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.001271
+Tiempo total de comunicacion en segundos: 10,001271
 
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.001731
+Tiempo total de comunicacion en segundos: 10,001731
 
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.001744
+Tiempo total de comunicacion en segundos: 10,001744
 
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.002343
+Tiempo total de comunicacion en segundos: 10,002343
 
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.001922
+Tiempo total de comunicacion en segundos: 10,001922
 
 tamaño de buffer: 100000 
 cant bytes: 100003
 hash: 4291411355
-Tiempo total de comunicacion en segundos: 10.002405
+Tiempo total de comunicacion en segundos: 10,002405
 
 --------------------------------------------
 tamaño de la entrada 1000000
@@ -163,50 +163,50 @@ tamaño de la entrada 1000000
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.006094
+Tiempo total de comunicacion en segundos: 10,006094
 
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.005256
+Tiempo total de comunicacion en segundos: 10,005256
 
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.005567
+Tiempo total de comunicacion en segundos: 10,005567
 
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.004556
+Tiempo total de comunicacion en segundos: 10,004556
 
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.005806
+Tiempo total de comunicacion en segundos: 10,005806
 
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.004583
+Tiempo total de comunicacion en segundos: 10,004583
 
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.002237
+Tiempo total de comunicacion en segundos: 10,002237
 
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.005023
+Tiempo total de comunicacion en segundos: 10,005023
 
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.008503
+Tiempo total de comunicacion en segundos: 10,008503
 
 tamaño de buffer: 1000000 
 cant bytes: 1000003
 hash: 868657293
-Tiempo total de comunicacion en segundos: 10.005121
+Tiempo total de comunicacion en segundos: 10,005121
 
