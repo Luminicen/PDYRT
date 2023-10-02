@@ -1,101 +1,92 @@
 --------------------------------------------
 tamaño de la entrada 1000
 --------------------------------------------
-ERROR connecting
---------------------------------------------
-tamaño de la entrada 1000
---------------------------------------------
-Tiempo total: 29189217719
+Tiempo total: 30875491
 Se recibieron correctamente
---------------------------------------------
-tamaño de la entrada 1000
---------------------------------------------
-Tiempo total: 10023064501
+Tiempo total: 38736641
 Se recibieron correctamente
-Tiempo total: 10026063610
+Tiempo total: 26720505
 Se recibieron correctamente
-Tiempo total: 10028137304
+Tiempo total: 39204093
 Se recibieron correctamente
-Tiempo total: 10040000345
+Tiempo total: 26834539
 Se recibieron correctamente
-Tiempo total: 10034209572
+Tiempo total: 36996460
 Se recibieron correctamente
-Tiempo total: 10025608302
+Tiempo total: 47710697
 Se recibieron correctamente
-Tiempo total: 10035020786
+Tiempo total: 30156962
 Se recibieron correctamente
-Tiempo total: 10029091097
+Tiempo total: 25163133
 Se recibieron correctamente
-Tiempo total: 10033643420
-Se recibieron correctamente
-Tiempo total: 10033361706
+Tiempo total: 44680423
 Se recibieron correctamente
 --------------------------------------------
 tamaño de la entrada 10000
 --------------------------------------------
-Tiempo total: 10034132180
+Tiempo total: 39246071
 Se recibieron correctamente
-Tiempo total: 10024365704
+Tiempo total: 39205932
 Se recibieron correctamente
-Tiempo total: 10035640645
+Tiempo total: 35039116
 Se recibieron correctamente
-Tiempo total: 10033870040
+Tiempo total: 59575196
 Se recibieron correctamente
-Tiempo total: 10034950182
+Tiempo total: 34072168
 Se recibieron correctamente
-Tiempo total: 10033764697
+Tiempo total: 35764833
 Se recibieron correctamente
-Tiempo total: 10032319053
+Tiempo total: 27957967
 Se recibieron correctamente
-Tiempo total: 10027973891
+Tiempo total: 38840245
 Se recibieron correctamente
-Tiempo total: 10026548624
+Tiempo total: 61310856
 Se recibieron correctamente
-Tiempo total: 10025461082
+Tiempo total: 41094632
 Se recibieron correctamente
 --------------------------------------------
 tamaño de la entrada 100000
 --------------------------------------------
-Tiempo total: 10037735257
+Tiempo total: 79814417
 Se recibieron correctamente
-Tiempo total: 10042819854
+Tiempo total: 42816896
 Se recibieron correctamente
-Tiempo total: 10035538321
+Tiempo total: 48579176
 Se recibieron correctamente
-Tiempo total: 10044893690
+Tiempo total: 55649662
 Se recibieron correctamente
-Tiempo total: 10043857355
+Tiempo total: 62843829
 Se recibieron correctamente
-Tiempo total: 10035083379
+Tiempo total: 53332114
 Se recibieron correctamente
-Tiempo total: 10042657194
+Tiempo total: 41240807
 Se recibieron correctamente
-Tiempo total: 10052934066
+Tiempo total: 38709986
 Se recibieron correctamente
-Tiempo total: 10043374175
+Tiempo total: 40073739
 Se recibieron correctamente
-Tiempo total: 10040728249
+Tiempo total: 33847605
 Se recibieron correctamente
 --------------------------------------------
 tamaño de la entrada 1000000
 --------------------------------------------
-Tiempo total: 10053575804
+Tiempo total: 63606110
 Se recibieron correctamente
-Tiempo total: 10045436380
+Tiempo total: 58910111
 Se recibieron correctamente
-Tiempo total: 10047029459
+Tiempo total: 61536516
 Se recibieron correctamente
-Tiempo total: 10054434986
+Tiempo total: 71871055
 Se recibieron correctamente
-Tiempo total: 10065472518
+Tiempo total: 58732140
 Se recibieron correctamente
-Tiempo total: 10062682842
+Tiempo total: 97973079
 Se recibieron correctamente
-Tiempo total: 10059230051
+Tiempo total: 65971895
 Se recibieron correctamente
-Tiempo total: 10055917720
+Tiempo total: 58910111
 Se recibieron correctamente
-Tiempo total: 10058355941
+Tiempo total: 591237824
 Se recibieron correctamente
-Tiempo total: 10066500137
+Tiempo total: 60420023
 Se recibieron correctamente
