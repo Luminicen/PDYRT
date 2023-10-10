@@ -1,0 +1,52 @@
+--------------------------------------------
+tamaño de la entrada 1000
+--------------------------------------------
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+--------------------------------------------
+tamaño de la entrada 10000
+--------------------------------------------
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+--------------------------------------------
+tamaño de la entrada 100000
+--------------------------------------------
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+--------------------------------------------
+tamaño de la entrada 1000000
+--------------------------------------------
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting
+ERROR connecting

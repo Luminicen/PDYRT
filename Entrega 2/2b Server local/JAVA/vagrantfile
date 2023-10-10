@@ -1,0 +1,23 @@
+Vagrant.configure("2") do |config|
+  # Base box, a simple/reduced one 
+  config.vm.box = "hashicorp/bionic64"
+  config.vm.network "public_network"
+
+  # Set memory size
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "512"
+    vb.name = "vm"
+  end
+
+  # Set hostname
+  config.vm.hostname = "vm"
+
+  config.vm.provision "shell", inline: <<-SHELL
+    # Get updated urls/packages sources? & tools
+    apt-get update
+    apt-get install -y net-tools debconf-utils joe zip libc-dev-bin build-essential nodejs npm openjdk-17-jdk openjdk-17-jre
+
+    # The alias for ls
+    grep -q "alias ls='ls -la'" /home/vagrant/.bashrc || echo -e "\\nalias ls='ls -la'" >> /home/vagrant/.bashrc
+  SHELL
+end

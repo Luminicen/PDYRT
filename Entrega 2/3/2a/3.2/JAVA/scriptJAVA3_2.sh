@@ -12,9 +12,9 @@ ip=$(vagrant ssh vm1 -c "hostname -I" | awk '{print $2}')
 port=4999
 for size in 1000 10000 100000 1000000
 do
-echo "--------------------------------------------" >> ./tiempoJAVA2a.txt
-echo "tamaño de la entrada $size" >> ./tiempoJAVA2a.txt
-echo "--------------------------------------------" >> ./tiempoJAVA2a.txt
+echo "--------------------------------------------" >> ./tiempoJAVA3_2.txt
+echo "tamaño de la entrada $size" >> ./tiempoJAVA3_2.txt
+echo "--------------------------------------------" >> ./tiempoJAVA3_2.txt
 for i in 1 2 3 4 5 6 7 8 9 10
 do
 port=$((port + 1))
@@ -24,6 +24,6 @@ printf "\n"
 echo $1
 printf "\n"
 vagrant ssh vm1 -c "cd /vagrant; java Server.java $port" &
-vagrant ssh vm2 -c "cd /vagrant; java Client.java $ip $port $size >> /vagrant/tiempoJAVA2a.txt"
+vagrant ssh vm2 -c "cd /vagrant; java Client.java $ip $port $size >> /vagrant/tiempoJAVA3_2.txt"
 done
 done
