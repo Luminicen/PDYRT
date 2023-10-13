@@ -1,0 +1,29 @@
+syntax = "proto3";
+package pdytr.ftp.grpc;
+
+message ReadRequest {
+  string name = 1;
+  int64 position = 2;
+  bytes offset = 3;
+}
+
+message ReadResponse {
+  int64 readBytes = 1;
+  int64 requestedReadBytes = 2;
+}
+
+message WriteRequest {
+  string name = 1;
+  int64 offset = 2;
+  bytes buffer = 3;
+}
+
+message WriteResponse {
+  int64 writtenBytes = 1;
+}
+
+
+service Ftp {
+   rpc write(WriteRequest) returns (ReadResponse);
+   rpc read(ReadRequest) returns (WriteResponse);
+}
