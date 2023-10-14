@@ -671,14 +671,19 @@ public final class FTPService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 readBytes = 1;</code>
+     * <code>bytes content = 1;</code>
      */
-    long getReadBytes();
+    com.google.protobuf.ByteString getContent();
 
     /**
      * <code>int64 requestedReadBytes = 2;</code>
      */
     long getRequestedReadBytes();
+
+    /**
+     * <code>int64 readBytes = 3;</code>
+     */
+    long getReadBytes();
   }
   /**
    * Protobuf type {@code pdytr.ftp.grpc.ReadResponse}
@@ -693,8 +698,9 @@ public final class FTPService {
       super(builder);
     }
     private ReadResponse() {
-      readBytes_ = 0L;
+      content_ = com.google.protobuf.ByteString.EMPTY;
       requestedReadBytes_ = 0L;
+      readBytes_ = 0L;
     }
 
     @java.lang.Override
@@ -725,14 +731,19 @@ public final class FTPService {
               }
               break;
             }
-            case 8: {
+            case 10: {
 
-              readBytes_ = input.readInt64();
+              content_ = input.readBytes();
               break;
             }
             case 16: {
 
               requestedReadBytes_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              readBytes_ = input.readInt64();
               break;
             }
           }
@@ -759,13 +770,13 @@ public final class FTPService {
               pdytr.ftp.grpc.FTPService.ReadResponse.class, pdytr.ftp.grpc.FTPService.ReadResponse.Builder.class);
     }
 
-    public static final int READBYTES_FIELD_NUMBER = 1;
-    private long readBytes_;
+    public static final int CONTENT_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString content_;
     /**
-     * <code>int64 readBytes = 1;</code>
+     * <code>bytes content = 1;</code>
      */
-    public long getReadBytes() {
-      return readBytes_;
+    public com.google.protobuf.ByteString getContent() {
+      return content_;
     }
 
     public static final int REQUESTEDREADBYTES_FIELD_NUMBER = 2;
@@ -775,6 +786,15 @@ public final class FTPService {
      */
     public long getRequestedReadBytes() {
       return requestedReadBytes_;
+    }
+
+    public static final int READBYTES_FIELD_NUMBER = 3;
+    private long readBytes_;
+    /**
+     * <code>int64 readBytes = 3;</code>
+     */
+    public long getReadBytes() {
+      return readBytes_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -789,11 +809,14 @@ public final class FTPService {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (readBytes_ != 0L) {
-        output.writeInt64(1, readBytes_);
+      if (!content_.isEmpty()) {
+        output.writeBytes(1, content_);
       }
       if (requestedReadBytes_ != 0L) {
         output.writeInt64(2, requestedReadBytes_);
+      }
+      if (readBytes_ != 0L) {
+        output.writeInt64(3, readBytes_);
       }
       unknownFields.writeTo(output);
     }
@@ -803,13 +826,17 @@ public final class FTPService {
       if (size != -1) return size;
 
       size = 0;
-      if (readBytes_ != 0L) {
+      if (!content_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, readBytes_);
+          .computeBytesSize(1, content_);
       }
       if (requestedReadBytes_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, requestedReadBytes_);
+      }
+      if (readBytes_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, readBytes_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -827,10 +854,12 @@ public final class FTPService {
       pdytr.ftp.grpc.FTPService.ReadResponse other = (pdytr.ftp.grpc.FTPService.ReadResponse) obj;
 
       boolean result = true;
-      result = result && (getReadBytes()
-          == other.getReadBytes());
+      result = result && getContent()
+          .equals(other.getContent());
       result = result && (getRequestedReadBytes()
           == other.getRequestedReadBytes());
+      result = result && (getReadBytes()
+          == other.getReadBytes());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -842,12 +871,14 @@ public final class FTPService {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + READBYTES_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getReadBytes());
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
       hash = (37 * hash) + REQUESTEDREADBYTES_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRequestedReadBytes());
+      hash = (37 * hash) + READBYTES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getReadBytes());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -977,9 +1008,11 @@ public final class FTPService {
       }
       public Builder clear() {
         super.clear();
-        readBytes_ = 0L;
+        content_ = com.google.protobuf.ByteString.EMPTY;
 
         requestedReadBytes_ = 0L;
+
+        readBytes_ = 0L;
 
         return this;
       }
@@ -1003,8 +1036,9 @@ public final class FTPService {
 
       public pdytr.ftp.grpc.FTPService.ReadResponse buildPartial() {
         pdytr.ftp.grpc.FTPService.ReadResponse result = new pdytr.ftp.grpc.FTPService.ReadResponse(this);
-        result.readBytes_ = readBytes_;
+        result.content_ = content_;
         result.requestedReadBytes_ = requestedReadBytes_;
+        result.readBytes_ = readBytes_;
         onBuilt();
         return result;
       }
@@ -1046,11 +1080,14 @@ public final class FTPService {
 
       public Builder mergeFrom(pdytr.ftp.grpc.FTPService.ReadResponse other) {
         if (other == pdytr.ftp.grpc.FTPService.ReadResponse.getDefaultInstance()) return this;
-        if (other.getReadBytes() != 0L) {
-          setReadBytes(other.getReadBytes());
+        if (other.getContent() != com.google.protobuf.ByteString.EMPTY) {
+          setContent(other.getContent());
         }
         if (other.getRequestedReadBytes() != 0L) {
           setRequestedReadBytes(other.getRequestedReadBytes());
+        }
+        if (other.getReadBytes() != 0L) {
+          setReadBytes(other.getReadBytes());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1079,28 +1116,31 @@ public final class FTPService {
         return this;
       }
 
-      private long readBytes_ ;
+      private com.google.protobuf.ByteString content_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>int64 readBytes = 1;</code>
+       * <code>bytes content = 1;</code>
        */
-      public long getReadBytes() {
-        return readBytes_;
+      public com.google.protobuf.ByteString getContent() {
+        return content_;
       }
       /**
-       * <code>int64 readBytes = 1;</code>
+       * <code>bytes content = 1;</code>
        */
-      public Builder setReadBytes(long value) {
-        
-        readBytes_ = value;
+      public Builder setContent(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 readBytes = 1;</code>
+       * <code>bytes content = 1;</code>
        */
-      public Builder clearReadBytes() {
+      public Builder clearContent() {
         
-        readBytes_ = 0L;
+        content_ = getDefaultInstance().getContent();
         onChanged();
         return this;
       }
@@ -1127,6 +1167,32 @@ public final class FTPService {
       public Builder clearRequestedReadBytes() {
         
         requestedReadBytes_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long readBytes_ ;
+      /**
+       * <code>int64 readBytes = 3;</code>
+       */
+      public long getReadBytes() {
+        return readBytes_;
+      }
+      /**
+       * <code>int64 readBytes = 3;</code>
+       */
+      public Builder setReadBytes(long value) {
+        
+        readBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 readBytes = 3;</code>
+       */
+      public Builder clearReadBytes() {
+        
+        readBytes_ = 0L;
         onChanged();
         return this;
       }
@@ -2311,15 +2377,15 @@ public final class FTPService {
     java.lang.String[] descriptorData = {
       "\n\020FTPService.proto\022\016pdytr.ftp.grpc\"=\n\013Re" +
       "adRequest\022\014\n\004name\030\001 \001(\t\022\020\n\010position\030\002 \001(" +
-      "\003\022\016\n\006offset\030\003 \001(\014\"=\n\014ReadResponse\022\021\n\trea" +
-      "dBytes\030\001 \001(\003\022\032\n\022requestedReadBytes\030\002 \001(\003" +
-      "\"<\n\014WriteRequest\022\014\n\004name\030\001 \001(\t\022\016\n\006offset" +
-      "\030\002 \001(\003\022\016\n\006buffer\030\003 \001(\014\"%\n\rWriteResponse\022" +
-      "\024\n\014writtenBytes\030\001 \001(\0032\216\001\n\003Ftp\022C\n\005write\022\034" +
-      ".pdytr.ftp.grpc.WriteRequest\032\034.pdytr.ftp" +
-      ".grpc.ReadResponse\022B\n\004read\022\033.pdytr.ftp.g" +
-      "rpc.ReadRequest\032\035.pdytr.ftp.grpc.WriteRe",
-      "sponseb\006proto3"
+      "\003\022\016\n\006offset\030\003 \001(\014\"N\n\014ReadResponse\022\017\n\007con" +
+      "tent\030\001 \001(\014\022\032\n\022requestedReadBytes\030\002 \001(\003\022\021" +
+      "\n\treadBytes\030\003 \001(\003\"<\n\014WriteRequest\022\014\n\004nam" +
+      "e\030\001 \001(\t\022\016\n\006offset\030\002 \001(\003\022\016\n\006buffer\030\003 \001(\014\"" +
+      "%\n\rWriteResponse\022\024\n\014writtenBytes\030\001 \001(\0032\225" +
+      "\001\n\nFtpService\022D\n\005write\022\034.pdytr.ftp.grpc." +
+      "WriteRequest\032\035.pdytr.ftp.grpc.WriteRespo" +
+      "nse\022A\n\004read\022\033.pdytr.ftp.grpc.ReadRequest",
+      "\032\034.pdytr.ftp.grpc.ReadResponseb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2344,7 +2410,7 @@ public final class FTPService {
     internal_static_pdytr_ftp_grpc_ReadResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pdytr_ftp_grpc_ReadResponse_descriptor,
-        new java.lang.String[] { "ReadBytes", "RequestedReadBytes", });
+        new java.lang.String[] { "Content", "RequestedReadBytes", "ReadBytes", });
     internal_static_pdytr_ftp_grpc_WriteRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_pdytr_ftp_grpc_WriteRequest_fieldAccessorTable = new

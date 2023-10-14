@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="pdytr.ftp.grpc.AppTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="pdytr.ftp.grpc.AppTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="os.detected.version" value="6.2"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -67,5 +67,5 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase classname="pdytr.ftp.grpc.AppTest" name="testApp" time="0.001"/>
+  <testcase classname="pdytr.ftp.grpc.AppTest" name="testApp" time="0.002"/>
 </testsuite>

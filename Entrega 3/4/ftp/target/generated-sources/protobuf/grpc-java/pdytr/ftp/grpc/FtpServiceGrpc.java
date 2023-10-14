@@ -20,78 +20,78 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.7.0)",
     comments = "Source: FTPService.proto")
-public final class FtpGrpc {
+public final class FtpServiceGrpc {
 
-  private FtpGrpc() {}
+  private FtpServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "pdytr.ftp.grpc.Ftp";
+  public static final String SERVICE_NAME = "pdytr.ftp.grpc.FtpService";
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<pdytr.ftp.grpc.FTPService.WriteRequest,
-      pdytr.ftp.grpc.FTPService.ReadResponse> METHOD_WRITE =
-      io.grpc.MethodDescriptor.<pdytr.ftp.grpc.FTPService.WriteRequest, pdytr.ftp.grpc.FTPService.ReadResponse>newBuilder()
+      pdytr.ftp.grpc.FTPService.WriteResponse> METHOD_WRITE =
+      io.grpc.MethodDescriptor.<pdytr.ftp.grpc.FTPService.WriteRequest, pdytr.ftp.grpc.FTPService.WriteResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "pdytr.ftp.grpc.Ftp", "write"))
+              "pdytr.ftp.grpc.FtpService", "write"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               pdytr.ftp.grpc.FTPService.WriteRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              pdytr.ftp.grpc.FTPService.ReadResponse.getDefaultInstance()))
-          .setSchemaDescriptor(new FtpMethodDescriptorSupplier("write"))
+              pdytr.ftp.grpc.FTPService.WriteResponse.getDefaultInstance()))
+          .setSchemaDescriptor(new FtpServiceMethodDescriptorSupplier("write"))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<pdytr.ftp.grpc.FTPService.ReadRequest,
-      pdytr.ftp.grpc.FTPService.WriteResponse> METHOD_READ =
-      io.grpc.MethodDescriptor.<pdytr.ftp.grpc.FTPService.ReadRequest, pdytr.ftp.grpc.FTPService.WriteResponse>newBuilder()
+      pdytr.ftp.grpc.FTPService.ReadResponse> METHOD_READ =
+      io.grpc.MethodDescriptor.<pdytr.ftp.grpc.FTPService.ReadRequest, pdytr.ftp.grpc.FTPService.ReadResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "pdytr.ftp.grpc.Ftp", "read"))
+              "pdytr.ftp.grpc.FtpService", "read"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               pdytr.ftp.grpc.FTPService.ReadRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              pdytr.ftp.grpc.FTPService.WriteResponse.getDefaultInstance()))
-          .setSchemaDescriptor(new FtpMethodDescriptorSupplier("read"))
+              pdytr.ftp.grpc.FTPService.ReadResponse.getDefaultInstance()))
+          .setSchemaDescriptor(new FtpServiceMethodDescriptorSupplier("read"))
           .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static FtpStub newStub(io.grpc.Channel channel) {
-    return new FtpStub(channel);
+  public static FtpServiceStub newStub(io.grpc.Channel channel) {
+    return new FtpServiceStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static FtpBlockingStub newBlockingStub(
+  public static FtpServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new FtpBlockingStub(channel);
+    return new FtpServiceBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static FtpFutureStub newFutureStub(
+  public static FtpServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new FtpFutureStub(channel);
+    return new FtpServiceFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class FtpImplBase implements io.grpc.BindableService {
+  public static abstract class FtpServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
     public void write(pdytr.ftp.grpc.FTPService.WriteRequest request,
-        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.ReadResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.WriteResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_WRITE, responseObserver);
     }
 
     /**
      */
     public void read(pdytr.ftp.grpc.FTPService.ReadRequest request,
-        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.WriteResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.ReadResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_READ, responseObserver);
     }
 
@@ -102,14 +102,14 @@ public final class FtpGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 pdytr.ftp.grpc.FTPService.WriteRequest,
-                pdytr.ftp.grpc.FTPService.ReadResponse>(
+                pdytr.ftp.grpc.FTPService.WriteResponse>(
                   this, METHODID_WRITE)))
           .addMethod(
             METHOD_READ,
             asyncUnaryCall(
               new MethodHandlers<
                 pdytr.ftp.grpc.FTPService.ReadRequest,
-                pdytr.ftp.grpc.FTPService.WriteResponse>(
+                pdytr.ftp.grpc.FTPService.ReadResponse>(
                   this, METHODID_READ)))
           .build();
     }
@@ -117,26 +117,26 @@ public final class FtpGrpc {
 
   /**
    */
-  public static final class FtpStub extends io.grpc.stub.AbstractStub<FtpStub> {
-    private FtpStub(io.grpc.Channel channel) {
+  public static final class FtpServiceStub extends io.grpc.stub.AbstractStub<FtpServiceStub> {
+    private FtpServiceStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private FtpStub(io.grpc.Channel channel,
+    private FtpServiceStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected FtpStub build(io.grpc.Channel channel,
+    protected FtpServiceStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new FtpStub(channel, callOptions);
+      return new FtpServiceStub(channel, callOptions);
     }
 
     /**
      */
     public void write(pdytr.ftp.grpc.FTPService.WriteRequest request,
-        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.ReadResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.WriteResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_WRITE, getCallOptions()), request, responseObserver);
     }
@@ -144,7 +144,7 @@ public final class FtpGrpc {
     /**
      */
     public void read(pdytr.ftp.grpc.FTPService.ReadRequest request,
-        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.WriteResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.ReadResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_READ, getCallOptions()), request, responseObserver);
     }
@@ -152,32 +152,32 @@ public final class FtpGrpc {
 
   /**
    */
-  public static final class FtpBlockingStub extends io.grpc.stub.AbstractStub<FtpBlockingStub> {
-    private FtpBlockingStub(io.grpc.Channel channel) {
+  public static final class FtpServiceBlockingStub extends io.grpc.stub.AbstractStub<FtpServiceBlockingStub> {
+    private FtpServiceBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private FtpBlockingStub(io.grpc.Channel channel,
+    private FtpServiceBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected FtpBlockingStub build(io.grpc.Channel channel,
+    protected FtpServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new FtpBlockingStub(channel, callOptions);
+      return new FtpServiceBlockingStub(channel, callOptions);
     }
 
     /**
      */
-    public pdytr.ftp.grpc.FTPService.ReadResponse write(pdytr.ftp.grpc.FTPService.WriteRequest request) {
+    public pdytr.ftp.grpc.FTPService.WriteResponse write(pdytr.ftp.grpc.FTPService.WriteRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_WRITE, getCallOptions(), request);
     }
 
     /**
      */
-    public pdytr.ftp.grpc.FTPService.WriteResponse read(pdytr.ftp.grpc.FTPService.ReadRequest request) {
+    public pdytr.ftp.grpc.FTPService.ReadResponse read(pdytr.ftp.grpc.FTPService.ReadRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_READ, getCallOptions(), request);
     }
@@ -185,25 +185,25 @@ public final class FtpGrpc {
 
   /**
    */
-  public static final class FtpFutureStub extends io.grpc.stub.AbstractStub<FtpFutureStub> {
-    private FtpFutureStub(io.grpc.Channel channel) {
+  public static final class FtpServiceFutureStub extends io.grpc.stub.AbstractStub<FtpServiceFutureStub> {
+    private FtpServiceFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private FtpFutureStub(io.grpc.Channel channel,
+    private FtpServiceFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected FtpFutureStub build(io.grpc.Channel channel,
+    protected FtpServiceFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new FtpFutureStub(channel, callOptions);
+      return new FtpServiceFutureStub(channel, callOptions);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<pdytr.ftp.grpc.FTPService.ReadResponse> write(
+    public com.google.common.util.concurrent.ListenableFuture<pdytr.ftp.grpc.FTPService.WriteResponse> write(
         pdytr.ftp.grpc.FTPService.WriteRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_WRITE, getCallOptions()), request);
@@ -211,7 +211,7 @@ public final class FtpGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<pdytr.ftp.grpc.FTPService.WriteResponse> read(
+    public com.google.common.util.concurrent.ListenableFuture<pdytr.ftp.grpc.FTPService.ReadResponse> read(
         pdytr.ftp.grpc.FTPService.ReadRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_READ, getCallOptions()), request);
@@ -226,10 +226,10 @@ public final class FtpGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final FtpImplBase serviceImpl;
+    private final FtpServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(FtpImplBase serviceImpl, int methodId) {
+    MethodHandlers(FtpServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -240,11 +240,11 @@ public final class FtpGrpc {
       switch (methodId) {
         case METHODID_WRITE:
           serviceImpl.write((pdytr.ftp.grpc.FTPService.WriteRequest) request,
-              (io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.ReadResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.WriteResponse>) responseObserver);
           break;
         case METHODID_READ:
           serviceImpl.read((pdytr.ftp.grpc.FTPService.ReadRequest) request,
-              (io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.WriteResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.ReadResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -262,9 +262,9 @@ public final class FtpGrpc {
     }
   }
 
-  private static abstract class FtpBaseDescriptorSupplier
+  private static abstract class FtpServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    FtpBaseDescriptorSupplier() {}
+    FtpServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -273,21 +273,21 @@ public final class FtpGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("Ftp");
+      return getFileDescriptor().findServiceByName("FtpService");
     }
   }
 
-  private static final class FtpFileDescriptorSupplier
-      extends FtpBaseDescriptorSupplier {
-    FtpFileDescriptorSupplier() {}
+  private static final class FtpServiceFileDescriptorSupplier
+      extends FtpServiceBaseDescriptorSupplier {
+    FtpServiceFileDescriptorSupplier() {}
   }
 
-  private static final class FtpMethodDescriptorSupplier
-      extends FtpBaseDescriptorSupplier
+  private static final class FtpServiceMethodDescriptorSupplier
+      extends FtpServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    FtpMethodDescriptorSupplier(String methodName) {
+    FtpServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -302,11 +302,11 @@ public final class FtpGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (FtpGrpc.class) {
+      synchronized (FtpServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new FtpFileDescriptorSupplier())
+              .setSchemaDescriptor(new FtpServiceFileDescriptorSupplier())
               .addMethod(METHOD_WRITE)
               .addMethod(METHOD_READ)
               .build();

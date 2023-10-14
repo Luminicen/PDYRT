@@ -8,8 +8,10 @@ message ReadRequest {
 }
 
 message ReadResponse {
-  int64 readBytes = 1;
+  bytes content = 1;
   int64 requestedReadBytes = 2;
+  int64 readBytes = 3;
+  
 }
 
 message WriteRequest {
@@ -23,7 +25,7 @@ message WriteResponse {
 }
 
 
-service Ftp {
-   rpc write(WriteRequest) returns (ReadResponse);
-   rpc read(ReadRequest) returns (WriteResponse);
+service FtpService {
+   rpc write(WriteRequest) returns (WriteResponse);
+   rpc read(ReadRequest) returns (ReadResponse);
 }
