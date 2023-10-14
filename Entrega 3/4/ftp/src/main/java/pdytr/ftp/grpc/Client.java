@@ -1,5 +1,4 @@
 package pdytr.ftp.grpc;
-import io.grpc.*;
 
 import io.grpc.*;
 
@@ -17,16 +16,26 @@ public class Client
       // Here we create a blocking stub, but an async stub,
       // or an async stub with Future are always possible.
       
-      //MODIFICAR
-      GreetingServiceGrpc.GreetingServiceBlockingStub stub = GreetingServiceGrpc.newBlockingStub(channel);
-      GreetingServiceOuterClass.HelloRequest request =
-        GreetingServiceOuterClass.HelloRequest.newBuilder()
-          .setName("Mariii")
+      if(args.length < 3){
+        System.out.println("Ingresar nombre del archivo, posicion y cantidad de bytes a leer");
+        System.exit(1);
+      }
+
+      String name = args[0];
+      int position = Integer.parseInt(args[1]);
+      int offset = Integer.parseInt(args[2]);
+
+      FtpServiceGrpc.FtpServiceBlockingStub stub = FtpServiceGrpc.newBlockingStub(channel);
+      FTPService.ReadRequest request =
+        FTPService.ReadRequest.newBuilder()
+          .setName(name)
+          .setPosition(position)
+          .setAmount(offset)
           .build();
 
       // Finally, make the call using the stub
-      GreetingServiceOuterClass.HelloResponse response = 
-        stub.greeting(request);
+      FTPService.ReadResponse response = 
+        stub.read(request);
 
       System.out.println(response);
 

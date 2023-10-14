@@ -3,24 +3,28 @@
   import java.io.RandomAccessFile;
   import java.io.FileNotFoundException;
   import io.grpc.stub.StreamObserver;
+  import com.google.protobuf.ByteString;
 
   public class FTPServiceImpl extends FtpServiceGrpc.FtpServiceImplBase {
     @Override
     public void read(FTPService.ReadRequest request,
           StreamObserver<FTPService.ReadResponse> responseObserver) {
 
+      RandomAccessFile rfile;
+      long readBytes = 0;
+
+      //crea un buffer del tamaño de datps cantidad a leer
+      byte[] buffer = new byte[request.getAmount()];
       try{
-        //crea un buffer del tamaño de datps cantidad a leer
-        byte[] buffer = new byte[(Integer)request.getOffset()];
-        int readBytes = 0;
-        RandomAccessFile rfile = new RandomAccessFile(request.getName(), "r");
         
-        //rfile.seek(request.getPosition);
-        readBytes = rfile.read(buffer,(Integer)request.getPosition(),(Integer)request.getOffset());
+        rfile = new RandomAccessFile(request.getName(), "r");
+        
+        rfile.seek(request.getPosition());
+        readBytes = rfile.read(buffer);
 
         //si leyó hasta el final del archivo se setea en -1
         if(readBytes == -1){
-          readBytes = rfile.length() - request.getOffset;
+          readBytes = rfile.length() - request.getAmount();
         }
         
       }
@@ -34,8 +38,8 @@
         }
         // You must use a builder to construct a new Protobuffer object
         FTPService.ReadResponse response = FTPService.ReadResponse.newBuilder()
-          .setContent(buffer)
-          .setRequestedReadBytes(request.getRequestedReadBytes)
+          .setContent(ByteString.copyFrom(buffer))
+          .setRequestedReadBytes(request.getAmount())
           .setReadBytes(readBytes)
           .build();
 
@@ -50,26 +54,29 @@
     public void write(FTPService.WriteRequest request,
           StreamObserver<FTPService.WriteResponse> responseObserver) {
       
+        RandomAccessFile wfile;
+        long size = 0;
         try{
-          RandomAccessFile wfile = new RandomAccessFile(request.getName(), "rw");
+          wfile = new RandomAccessFile(request.getName(), "rw");
 
-          int size = wfile.length();
-
-          wfile.write(request.getBuffer(), size, request.getOffset);
+          size = wfile.length();
+	
+	  wfile.seek(size);
+          wfile.write(request.getBuffer().toByteArray());
 
         }
         catch(Exception e){
           e.printStackTrace();
         }
         finally{
-          int amount = 0
+          long amount = 0;
           if (wfile != null){
             wfile.close();
             amount = wfile.length() - size;
           }
           // You must use a builder to construct a new Protobuffer object
           FTPService.WriteResponse response = FTPService.WriteResponse.newBuilder()
-            .setwrittenBytes(amount)
+            .setWrittenBytes(amount)
             .build();
 
           // Use responseObserver to send a single response back

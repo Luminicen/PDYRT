@@ -5,7 +5,7 @@ public class App{
 	public static void main(String[] args)throws Exception
 	{
 		Server server = ServerBuilder.forPort(8080)
-        .addService(new ())
+        .addService(new FTPServiceImpl())
         .build();
       	// Start the server
       	server.start();

@@ -4,19 +4,19 @@ package pdytr.ftp.grpc;
 message ReadRequest {
   string name = 1;
   int64 position = 2;
-  int64 offset = 3;
+  int32 amount = 3;
 }
 
 message ReadResponse {
   bytes content = 1;
-  int64 requestedReadBytes = 2;
+  int32 requestedReadBytes = 2;
   int64 readBytes = 3;
   
 }
 
 message WriteRequest {
   string name = 1;
-  int64 offset = 2;
+  int32 amount = 2;
   bytes buffer = 3;
 }
 
