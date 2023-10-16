@@ -1,45 +1,76 @@
-package pdytr.ftp.grpc;
+  package pdytr.ftp.grpc;
 
-import io.grpc.*;
+  import io.grpc.*;
 
-public class Client
-{
-    public static void main( String[] args ) throws Exception
-    {
-      // Channel is the abstraction to connect to a service endpoint
-      // Let's use plaintext communication because we don't have certs
-      final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8080")
-        .usePlaintext(true)
-        .build();
+  public class Client
+  {
+      public static void main( String[] args ) throws Exception
+      {
 
-      // It is up to the client to determine whether to block the call
-      // Here we create a blocking stub, but an async stub,
-      // or an async stub with Future are always possible.
-      
-      if(args.length < 3){
-        System.out.println("Ingresar nombre del archivo, posicion y cantidad de bytes a leer");
-        System.exit(1);
-      }
-
-      String name = args[0];
-      int position = Integer.parseInt(args[1]);
-      int offset = Integer.parseInt(args[2]);
-
-      FtpServiceGrpc.FtpServiceBlockingStub stub = FtpServiceGrpc.newBlockingStub(channel);
-      FTPService.ReadRequest request =
-        FTPService.ReadRequest.newBuilder()
-          .setName(name)
-          .setPosition(position)
-          .setAmount(offset)
+        if(args.length < 4){
+          System.out.println("Ingresar 1ro el modo: r (read) o w (write)");
+          System.out.println("Para modo r ingresar 2: nombre, 3: posicion y 4: cantidad de bytes a leer");
+          System.out.println("Para modo w ingresar 2: nombre, 3: cantidad de bytes a escribir y 4: contenido");
+          System.exit(1);
+        }
+        // Channel is the abstraction to connect to a service endpoint
+        // Let's use plaintext communication because we don't have certs
+        final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8080")
+          .usePlaintext(true)
           .build();
 
-      // Finally, make the call using the stub
-      FTPService.ReadResponse response = 
-        stub.read(request);
+        // It is up to the client to determine whether to block the call
+        // Here we create a blocking stub, but an async stub,
+        // or an async stub with Future are always possible.
+        
+        switch(args[0]){
+        case "r":
+          read(args[1], Long.parseLong(args[2]), Integer.parseInt(args[3]);
+          break;
+        case "r":
+          write(args[1], Integer.parseInt(args[2]), args[3]);
+          break;
+        default:
+          System.out.println("modo ingresado invalido. Ingrese r para modo read o w para modo write");
+        }
+        
+        // A Channel should be shutdown before stopping the process.
+        channel.shutdownNow();
+      }
 
-      System.out.println(response);
+      public static void read(String name, long position, int amount){
 
-      // A Channel should be shutdown before stopping the process.
-      channel.shutdownNow();
-    }
-}
+        FtpServiceGrpc.FtpServiceBlockingStub stub = FtpServiceGrpc.newBlockingStub(channel);
+        FTPService.ReadRequest request =
+          FTPService.ReadRequest.newBuilder()
+            .setName(name)
+            .setPosition(position)
+            .setAmount(amount)
+            .build();
+
+        // Finally, make the call using the stub
+        FTPService.ReadResponse response = 
+          stub.read(request);
+
+        System.out.println(response);
+      }
+
+      public static void write(String name, int amount, String buffer){
+
+        FtpServiceGrpc.FtpServiceBlockingStub stub = FtpServiceGrpc.newBlockingStub(channel);
+        FTPService.WriteRequest request =
+          FTPService.WriteRequest.newBuilder()
+            .setName(name)
+            .setAmount(amount)
+            .setBUffer(buffer)
+            .build();
+
+        // Finally, make the call using the stub
+        FTPService.WriteResponse response = 
+          stub.read(request);
+
+        System.out.println(response);
+
+      }
+
+  }
