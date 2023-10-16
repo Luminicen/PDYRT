@@ -1,6 +1,8 @@
   package pdytr.ftp.grpc;
 
   import io.grpc.*;
+  import com.google.protobuf.ByteString;
+
 
   public class Client
   {
@@ -13,11 +15,14 @@
           System.out.println("Para modo w ingresar 2: nombre, 3: cantidad de bytes a escribir y 4: contenido");
           System.exit(1);
         }
+
         // Channel is the abstraction to connect to a service endpoint
         // Let's use plaintext communication because we don't have certs
         final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8080")
           .usePlaintext(true)
           .build();
+
+        FtpServiceGrpc.FtpServiceBlockingStub stub = FtpServiceGrpc.newBlockingStub(channel);
 
         // It is up to the client to determine whether to block the call
         // Here we create a blocking stub, but an async stub,
@@ -25,10 +30,10 @@
         
         switch(args[0]){
         case "r":
-          read(args[1], Long.parseLong(args[2]), Integer.parseInt(args[3]);
+          read(stub, args[1], Long.parseLong(args[2]), Integer.parseInt(args[3]));
           break;
-        case "r":
-          write(args[1], Integer.parseInt(args[2]), args[3]);
+        case "w":
+          write(stub, args[1], Integer.parseInt(args[2]), args[3].getBytes());
           break;
         default:
           System.out.println("modo ingresado invalido. Ingrese r para modo read o w para modo write");
@@ -38,9 +43,7 @@
         channel.shutdownNow();
       }
 
-      public static void read(String name, long position, int amount){
-
-        FtpServiceGrpc.FtpServiceBlockingStub stub = FtpServiceGrpc.newBlockingStub(channel);
+      public static void read(FtpServiceGrpc.FtpServiceBlockingStub stub, String name, long position, int amount){
         FTPService.ReadRequest request =
           FTPService.ReadRequest.newBuilder()
             .setName(name)
@@ -55,19 +58,17 @@
         System.out.println(response);
       }
 
-      public static void write(String name, int amount, String buffer){
-
-        FtpServiceGrpc.FtpServiceBlockingStub stub = FtpServiceGrpc.newBlockingStub(channel);
+      public static void write(FtpServiceGrpc.FtpServiceBlockingStub stub, String name, int amount, byte[] buffer){
         FTPService.WriteRequest request =
           FTPService.WriteRequest.newBuilder()
             .setName(name)
             .setAmount(amount)
-            .setBUffer(buffer)
+            .setBuffer(ByteString.copyFrom(buffer))
             .build();
 
         // Finally, make the call using the stub
         FTPService.WriteResponse response = 
-          stub.read(request);
+          stub.write(request);
 
         System.out.println(response);
 
