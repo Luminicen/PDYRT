@@ -1,0 +1,65 @@
+--------------------------------------------
+Resultado llamada nro 1
+--------------------------------------------
+[[1;31mERROR[m] Failed to execute goal [32morg.codehaus.mojo:exec-maven-plugin:3.1.0:java[m [1m(default-cli)[m on project [36mgrpc-hello-server[m: [1;31mAn exception occurred while executing the Java class. DEADLINE_EXCEEDED: deadline exceeded after 131276245ns[m -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+--------------------------------------------
+Resultado llamada nro 2
+--------------------------------------------
+[[1;31mERROR[m] Failed to execute goal [32morg.codehaus.mojo:exec-maven-plugin:3.1.0:java[m [1m(default-cli)[m on project [36mgrpc-hello-server[m: [1;31mAn exception occurred while executing the Java class. DEADLINE_EXCEEDED: deadline exceeded after 133458608ns[m -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+--------------------------------------------
+Resultado llamada nro 3
+--------------------------------------------
+greeting: "Hello there, Freddie Mercury"
+
+--------------------------------------------
+Resultado llamada nro 4
+--------------------------------------------
+greeting: "Hello there, Freddie Mercury"
+
+--------------------------------------------
+Resultado llamada nro 5
+--------------------------------------------
+greeting: "Hello there, Freddie Mercury"
+
+--------------------------------------------
+Resultado llamada nro 6
+--------------------------------------------
+greeting: "Hello there, Freddie Mercury"
+
+--------------------------------------------
+Resultado llamada nro 7
+--------------------------------------------
+greeting: "Hello there, Freddie Mercury"
+
+--------------------------------------------
+Resultado llamada nro 8
+--------------------------------------------
+[[1;31mERROR[m] Failed to execute goal [32morg.codehaus.mojo:exec-maven-plugin:3.1.0:java[m [1m(default-cli)[m on project [36mgrpc-hello-server[m: [1;31mAn exception occurred while executing the Java class. DEADLINE_EXCEEDED: deadline exceeded after 127495447ns[m -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+--------------------------------------------
+Resultado llamada nro 9
+--------------------------------------------
+greeting: "Hello there, Freddie Mercury"
+
+--------------------------------------------
+Resultado llamada nro 10
+--------------------------------------------
+greeting: "Hello there, Freddie Mercury"
+
