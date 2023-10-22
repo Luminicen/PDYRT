@@ -2,6 +2,7 @@
 
 #inicia servidor unico en background
 mvn -DskipTests package exec:java -Dexec.mainClass=pdytr.example.grpc.App --quiet &
+s_pid=$!
 sleep 3
 average=0
 for i in 1 2 3 4 5 6 7 8 9 10
@@ -14,7 +15,7 @@ temp=$(mvn -DskipTests exec:java -Dexec.mainClass=pdytr.example.grpc.Client  --q
 average=$((average + temp))
 echo $temp >> ./experimento1cprom.txt
 done
-killall java
+kill $s_pid
 average=$((average / 10))
 echo "--------------------------------------------" >> ./experimento1cprom.txt
 echo "Promedio en milisegundos:" >> ./experimento1cprom.txt
