@@ -11,7 +11,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
 
     // You must use a builder to construct a new Protobuffer object
     GreetingServiceOuterClass.HelloResponse response = GreetingServiceOuterClass.HelloResponse.newBuilder()
-      .setGreeting("Hello there, " + request.getName())
+      .setGreeting("Hello there")
       .build();
 
     // Use responseObserver to send a single response back

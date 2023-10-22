@@ -61,14 +61,10 @@ public class Server
     fromclient.read(buffer);
 
     /* Convert to string */
-    String str = new String(buffer);
-
-    System.out.println("Here is the message: " +  str.length());
 
     /* Fixed string to the client */
     String strresp = "I got your message";
 
-    System.out.println("strrsp " + strresp);
 
     buffer = strresp.getBytes();
 
