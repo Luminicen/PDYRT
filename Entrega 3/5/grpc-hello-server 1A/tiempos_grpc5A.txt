@@ -1,0 +1,132 @@
+--------------------------------------------
+Muestra tamaño 1000
+--------------------------------------------
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.092102316
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.066894671
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.06492066
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.064363906
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.058509298
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.062718739
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.059957906
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.062479472
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.061707821
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.05847744
+--------------------------------------------
+Muestra tamaño 10000
+--------------------------------------------
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.060605783
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.063823611
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.06383631
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.063036919
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.064583953
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.061207233
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.06425454
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.063806169
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.062061544
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.059286697
+--------------------------------------------
+Muestra tamaño 100000
+--------------------------------------------
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.058289532
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.057870455
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.057860688
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.054609471
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.058091326
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.062191021
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.058368453
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.069381137
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.057200045
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.063764524
+--------------------------------------------
+Muestra tamaño 1000000
+--------------------------------------------
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.061792202
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.061184119
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.057333502
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.072842902
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.058696071
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.057965383
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.058606104
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.065209179
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.060360856
+greeting: "Hello there"
+
+Tiempo transcurrido: 0.059032314
