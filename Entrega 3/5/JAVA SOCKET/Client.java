@@ -66,7 +66,7 @@ public class Client
     String resp = new String(buffer);
     //System.out.println(resp);
     double segundos = (double) ((resultado_a+resultado_b)/2) / 1_000_000_000.0;
-    System.out.println("Tiempo transcurrido: "+ segundos);
+    System.out.println("Tiempo transcurrido: "+ String.format("%.6f", segundos));
     fromserver.close();
     toserver.close();
     socketwithserver.close();
