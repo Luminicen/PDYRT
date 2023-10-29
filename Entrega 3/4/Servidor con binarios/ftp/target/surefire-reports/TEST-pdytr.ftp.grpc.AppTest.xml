@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="pdytr.ftp.grpc.AppTest" time="0.013" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\Maiev\Documents\GitHub\PDYRT\Entrega 3\4\Servidor con binarios\ftp\target\test-classes;C:\Users\Maiev\Documents\GitHub\PDYRT\Entrega 3\4\Servidor con binarios\ftp\target\classes;C:\Users\Maiev\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-netty\1.7.0\grpc-netty-1.7.0.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-core\1.7.0\grpc-core-1.7.0.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-context\1.7.0\grpc-context-1.7.0.jar;C:\Users\Maiev\.m2\repository\com\google\errorprone\error_prone_annotations\2.0.19\error_prone_annotations-2.0.19.jar;C:\Users\Maiev\.m2\repository\com\google\code\findbugs\jsr305\3.0.0\jsr305-3.0.0.jar;C:\Users\Maiev\.m2\repository\com\google\instrumentation\instrumentation-api\0.4.3\instrumentation-api-0.4.3.jar;C:\Users\Maiev\.m2\repository\io\opencensus\opencensus-api\0.6.0\opencensus-api-0.6.0.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-codec-http2\4.1.16.Final\netty-codec-http2-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-codec-http\4.1.16.Final\netty-codec-http-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-codec\4.1.16.Final\netty-codec-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-handler\4.1.16.Final\netty-handler-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-buffer\4.1.16.Final\netty-buffer-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-common\4.1.16.Final\netty-common-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-handler-proxy\4.1.16.Final\netty-handler-proxy-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-transport\4.1.16.Final\netty-transport-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-resolver\4.1.16.Final\netty-resolver-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-codec-socks\4.1.16.Final\netty-codec-socks-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-protobuf\1.7.0\grpc-protobuf-1.7.0.jar;C:\Users\Maiev\.m2\repository\com\google\protobuf\protobuf-java\3.4.0\protobuf-java-3.4.0.jar;C:\Users\Maiev\.m2\repository\com\google\guava\guava\19.0\guava-19.0.jar;C:\Users\Maiev\.m2\repository\com\google\protobuf\protobuf-java-util\3.4.0\protobuf-java-util-3.4.0.jar;C:\Users\Maiev\.m2\repository\com\google\code\gson\gson\2.7\gson-2.7.jar;C:\Users\Maiev\.m2\repository\com\google\api\grpc\proto-google-common-protos\0.1.9\proto-google-common-protos-0.1.9.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-protobuf-lite\1.7.0\grpc-protobuf-lite-1.7.0.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-stub\1.7.0\grpc-stub-1.7.0.jar;C:\Users\Maiev\.m2\repository\javax\annotation\javax.annotation-api\1.2\javax.annotation-api-1.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/Buenos_Aires"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="AR"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
+    <property name="sun.java.command" value="C:\Users\Maiev\AppData\Local\Temp\surefire13264071356219093308\surefirebooter-20231029110104502_3.jar C:\Users\Maiev\AppData\Local\Temp\surefire13264071356219093308 2023-10-29T11-01-04_282-jvmRun1 surefire-20231029110104502_1tmp surefire_0-20231029110104502_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\Maiev\Documents\GitHub\PDYRT\Entrega 3\4\Servidor con binarios\ftp\target\test-classes;C:\Users\Maiev\Documents\GitHub\PDYRT\Entrega 3\4\Servidor con binarios\ftp\target\classes;C:\Users\Maiev\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-netty\1.7.0\grpc-netty-1.7.0.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-core\1.7.0\grpc-core-1.7.0.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-context\1.7.0\grpc-context-1.7.0.jar;C:\Users\Maiev\.m2\repository\com\google\errorprone\error_prone_annotations\2.0.19\error_prone_annotations-2.0.19.jar;C:\Users\Maiev\.m2\repository\com\google\code\findbugs\jsr305\3.0.0\jsr305-3.0.0.jar;C:\Users\Maiev\.m2\repository\com\google\instrumentation\instrumentation-api\0.4.3\instrumentation-api-0.4.3.jar;C:\Users\Maiev\.m2\repository\io\opencensus\opencensus-api\0.6.0\opencensus-api-0.6.0.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-codec-http2\4.1.16.Final\netty-codec-http2-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-codec-http\4.1.16.Final\netty-codec-http-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-codec\4.1.16.Final\netty-codec-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-handler\4.1.16.Final\netty-handler-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-buffer\4.1.16.Final\netty-buffer-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-common\4.1.16.Final\netty-common-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-handler-proxy\4.1.16.Final\netty-handler-proxy-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-transport\4.1.16.Final\netty-transport-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-resolver\4.1.16.Final\netty-resolver-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\netty\netty-codec-socks\4.1.16.Final\netty-codec-socks-4.1.16.Final.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-protobuf\1.7.0\grpc-protobuf-1.7.0.jar;C:\Users\Maiev\.m2\repository\com\google\protobuf\protobuf-java\3.4.0\protobuf-java-3.4.0.jar;C:\Users\Maiev\.m2\repository\com\google\guava\guava\19.0\guava-19.0.jar;C:\Users\Maiev\.m2\repository\com\google\protobuf\protobuf-java-util\3.4.0\protobuf-java-util-3.4.0.jar;C:\Users\Maiev\.m2\repository\com\google\code\gson\gson\2.7\gson-2.7.jar;C:\Users\Maiev\.m2\repository\com\google\api\grpc\proto-google-common-protos\0.1.9\proto-google-common-protos-0.1.9.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-protobuf-lite\1.7.0\grpc-protobuf-lite-1.7.0.jar;C:\Users\Maiev\.m2\repository\io\grpc\grpc-stub\1.7.0\grpc-stub-1.7.0.jar;C:\Users\Maiev\.m2\repository\javax\annotation\javax.annotation-api\1.2\javax.annotation-api-1.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Maiev"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-07-18"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\Maiev\Documents\GitHub\PDYRT\Entrega 3\4\Servidor con binarios\ftp"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\Maiev\AppData\Local\Temp\surefire13264071356219093308\surefirebooter-20231029110104502_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.8+9-LTS-211"/>
+    <property name="user.name" value="Maiev"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Maiev\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Maiev\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.8"/>
+    <property name="user.dir" value="C:\Users\Maiev\Documents\GitHub\PDYRT\Entrega 3\4\Servidor con binarios\ftp"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\Library\usr\bin;C:\ProgramData\Anaconda3\Library\bin;C:\ProgramData\Anaconda3\Scripts;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\Maiev\AppData\Local\Microsoft\WindowsApps;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\dotnet\;C:\Program Files\PuTTY\;C:\HashiCorp\Vagrant\bin;C:\Program Files\apache-maven-3.9.5\bin;C:\Users\Maiev\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Maiev\AppData\Local\Programs\Python\Python310;C:\Users\Maiev\AppData\Local\Microsoft\WindowsApps;C:\Users\Maiev\AppData\Local\GitHubDesktop\bin;C:\Users\Maiev\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Maiev\AppData\Roaming\npm;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.8+9-LTS-211"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testApp" classname="pdytr.ftp.grpc.AppTest" time="0.002"/>
+</testsuite>
