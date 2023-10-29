@@ -40,7 +40,7 @@
           write(stub, args[1], Integer.parseInt(args[2]), args[3].getBytes());
           break;
         case "f":
-          byte[] fileDataToWrite = readFile(args[1]);
+          byte[] fileDataToWrite = readFile(args[3]);
           writeFile(stub, args[1], fileDataToWrite.length, fileDataToWrite);
    
         default:
