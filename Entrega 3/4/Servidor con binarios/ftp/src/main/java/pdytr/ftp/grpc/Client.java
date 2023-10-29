@@ -41,8 +41,8 @@
           break;
         case "f":
           byte[] fileDataToWrite = readFile(args[3]);
-          writeFile(stub, args[1], fileDataToWrite.length, fileDataToWrite);
-   
+          write(stub, args[1], fileDataToWrite.length, fileDataToWrite);
+          break;
         default:
           System.out.println("modo ingresado invalido. Ingrese r para modo read o w para modo write");
         }
@@ -81,20 +81,7 @@
         System.out.println(response);
 
       }
-       public static void writeFile(FtpServiceGrpc.FtpServiceBlockingStub stub, String name, int amount, byte[] buffer){
-        FTPService.WriteFileRequest request =
-          FTPService.WriteFileRequest.newBuilder()
-            .setName(name)
-            .setAmount(amount)
-            .setBuffer(ByteString.copyFrom(buffer))
-            .build();
-
-        // Finally, make the call using the stub
-        FTPService.WriteFileResponse response = stub.writeFile(request);
-
-        System.out.println(response);
-
-      }
+      
       public static byte[] readFile(String filePath) {
         byte[] fileData = null;
         try {

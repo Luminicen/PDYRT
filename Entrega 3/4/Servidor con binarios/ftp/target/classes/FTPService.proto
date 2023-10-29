@@ -23,19 +23,11 @@ message WriteRequest {
 message WriteResponse {
   int64 writtenBytes = 1;
 }
-message WriteFileRequest {
-  string name = 1;
-  int32 amount = 2;
-  bytes buffer = 3;
-}
 
-message WriteFileResponse {
-  int64 writtenBytes = 1;
-}
 
 
 service FtpService {
    rpc write(WriteRequest) returns (WriteResponse);
    rpc read(ReadRequest) returns (ReadResponse);
-   rpc WriteFile(WriteFileRequest) returns (WriteFileResponse);
+   
 }

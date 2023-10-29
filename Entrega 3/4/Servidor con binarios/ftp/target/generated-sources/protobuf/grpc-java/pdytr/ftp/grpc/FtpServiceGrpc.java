@@ -53,19 +53,6 @@ public final class FtpServiceGrpc {
               pdytr.ftp.grpc.FTPService.ReadResponse.getDefaultInstance()))
           .setSchemaDescriptor(new FtpServiceMethodDescriptorSupplier("read"))
           .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<pdytr.ftp.grpc.FTPService.WriteFileRequest,
-      pdytr.ftp.grpc.FTPService.WriteFileResponse> METHOD_WRITE_FILE =
-      io.grpc.MethodDescriptor.<pdytr.ftp.grpc.FTPService.WriteFileRequest, pdytr.ftp.grpc.FTPService.WriteFileResponse>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "pdytr.ftp.grpc.FtpService", "WriteFile"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              pdytr.ftp.grpc.FTPService.WriteFileRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              pdytr.ftp.grpc.FTPService.WriteFileResponse.getDefaultInstance()))
-          .setSchemaDescriptor(new FtpServiceMethodDescriptorSupplier("WriteFile"))
-          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -108,13 +95,6 @@ public final class FtpServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_READ, responseObserver);
     }
 
-    /**
-     */
-    public void writeFile(pdytr.ftp.grpc.FTPService.WriteFileRequest request,
-        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.WriteFileResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_WRITE_FILE, responseObserver);
-    }
-
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -131,13 +111,6 @@ public final class FtpServiceGrpc {
                 pdytr.ftp.grpc.FTPService.ReadRequest,
                 pdytr.ftp.grpc.FTPService.ReadResponse>(
                   this, METHODID_READ)))
-          .addMethod(
-            METHOD_WRITE_FILE,
-            asyncUnaryCall(
-              new MethodHandlers<
-                pdytr.ftp.grpc.FTPService.WriteFileRequest,
-                pdytr.ftp.grpc.FTPService.WriteFileResponse>(
-                  this, METHODID_WRITE_FILE)))
           .build();
     }
   }
@@ -175,14 +148,6 @@ public final class FtpServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_READ, getCallOptions()), request, responseObserver);
     }
-
-    /**
-     */
-    public void writeFile(pdytr.ftp.grpc.FTPService.WriteFileRequest request,
-        io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.WriteFileResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_WRITE_FILE, getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
@@ -215,13 +180,6 @@ public final class FtpServiceGrpc {
     public pdytr.ftp.grpc.FTPService.ReadResponse read(pdytr.ftp.grpc.FTPService.ReadRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_READ, getCallOptions(), request);
-    }
-
-    /**
-     */
-    public pdytr.ftp.grpc.FTPService.WriteFileResponse writeFile(pdytr.ftp.grpc.FTPService.WriteFileRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_WRITE_FILE, getCallOptions(), request);
     }
   }
 
@@ -258,19 +216,10 @@ public final class FtpServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_READ, getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<pdytr.ftp.grpc.FTPService.WriteFileResponse> writeFile(
-        pdytr.ftp.grpc.FTPService.WriteFileRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_WRITE_FILE, getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_WRITE = 0;
   private static final int METHODID_READ = 1;
-  private static final int METHODID_WRITE_FILE = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -296,10 +245,6 @@ public final class FtpServiceGrpc {
         case METHODID_READ:
           serviceImpl.read((pdytr.ftp.grpc.FTPService.ReadRequest) request,
               (io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.ReadResponse>) responseObserver);
-          break;
-        case METHODID_WRITE_FILE:
-          serviceImpl.writeFile((pdytr.ftp.grpc.FTPService.WriteFileRequest) request,
-              (io.grpc.stub.StreamObserver<pdytr.ftp.grpc.FTPService.WriteFileResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -364,7 +309,6 @@ public final class FtpServiceGrpc {
               .setSchemaDescriptor(new FtpServiceFileDescriptorSupplier())
               .addMethod(METHOD_WRITE)
               .addMethod(METHOD_READ)
-              .addMethod(METHOD_WRITE_FILE)
               .build();
         }
       }
