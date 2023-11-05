@@ -2,68 +2,70 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jade.core.*;
+
 public class Agenteejercicio1 extends Agent {
-private List<ContainerID> contenerdores;
-private final Integer cantidadContenedores = 5;
-private Integer actual = 0;
-private Location origen;
-public Agenteejercicio1(){
-    super();
-    contenerdores = new ArrayList<ContainerID>();
-    for(int i = 0; i<cantidadContenedores ; i++){
-        contenerdores.add(new ContainerID("Contenedor "+i, null));
-    }
-}
-public void setup()
-{
-	Location origen = here();
-	System.out.println("\n\nHola, agente con nombre local " + getLocalName());
-	System.out.println("Y nombre completo... " + getName());
-	System.out.println("Y en location " + origen.getID() + "\n\n");
-// Para migrar el agente
-try {
-	ContainerID destino = contenerdores.get(actual);
-	System.out.println("Migrando el agente a " + destino.getID());
-	doMove(destino);
-} catch (Exception e) {
-	System.out.println("No fue posible migrar el agente\n\n\n");}
-}
+    private List<ContainerID> contenedores;
+    private List<String> data;
+    private final Integer cantidadContenedores = 5;
+    private Integer actual = 0;
+    private Location origen;
+    private long tiempoTotalRecorrido = 0;
+    private long tiempoActual = 0;
 
-// Ejecutado al llegar a un contenedor como resultado de una migracin
-protected void afterMove()
-{
-	origen = here();
-	System.out.println("\n\nHola, agente migrado con nombre local " + getLocalName());
-	System.out.println("Y nombre completo... " + getName());
-	System.out.println("Y en location " + origen.getID() + "\n\n");
-    actual ++;
-    //Miro para moverme a la siguiente ubicacion
-    if (actual < (cantidadContenedores - 1)){
-        //no estoy en el ultimo contenedor
-        // Para migrar el agente
-        try {
-	    ContainerID destino = contenerdores.get(actual);
-	    System.out.println("Migrando el agente a " + destino.getID());
-	    doMove(destino);
-        } catch (Exception e) {
-	        System.out.println("No fue posible migrar el agente\n\n\n");
+
+
+    public Agenteejercicio1() {
+        super();
+        contenedores = new ArrayList<ContainerID>();
+        data = new ArrayList<String>();
+        for (int i = 0; i < cantidadContenedores; i++) {
+            contenedores.add(new ContainerID("Contenedor " + i, null));
         }
-    if(actual == (cantidadContenedores - 1)){
+    }
+
+    public void setup() {
+        // Migrar el agente al primer contenedor de la lista
+        ContainerID primerDestino = contenedores.get(0);
+        System.out.println("\n\nHola, agente con nombre local " + getLocalName());
+        System.out.println("Y nombre completo... " + getName());
+        System.out.println("Y en location " + primerDestino.getID() + "\n\n");
+
         try {
-        actual = -1;
-	    ContainerID destino = contenerdores.get(actual);
-	    System.out.println("Migrando el agente a " + destino.getID());
-	    doMove(destino);
+            System.out.println("Migrando el agente a " + primerDestino.getID());
+            tiempoActual= System.nanoTime();
+            doMove(primerDestino);
         } catch (Exception e) {
-	        System.out.println("No fue posible migrar el agente\n\n\n");
+            System.out.println("No fue posible migrar el agente\n\n\n");
         }
-        //estoy en el ultimo
-    }
-    if(actual == -1){
-        System.out.println("Termine\n\n\n");
     }
 
-
+    protected void afterMove() {
+        tiempoTotalRecorrido = tiempoTotalRecorrido + (System.nanoTime() - tiempoActual);
+        origen = here();
+        System.out.println("\n\nHola, agente migrado con nombre local " + getLocalName());
+        System.out.println("Y nombre completo... " + getName());
+        System.out.println("Y en location " + origen.getID() + "\n\n");
+        actual++;
+         // Simular la recopilación de información 
+        data.add(origen.getName());
+        // Miro para moverme al siguiente ubicación
+        if (actual < cantidadContenedores) {
+            // No estoy en el último contenedor
+            try {
+                ContainerID destino = contenedores.get(actual);
+                System.out.println("Migrando el agente a " + destino.getID());
+                tiempoActual= System.nanoTime();
+                doMove(destino);
+            } catch (Exception e) {
+                System.out.println("No fue posible migrar el agente\n\n\n");
+            }
+        } else {
+            // Estoy en el último
+            System.out.println("Termine\n\n\n");
+            System.out.println(data);
+        }
     }
-}
+    
+   
+   
 }
