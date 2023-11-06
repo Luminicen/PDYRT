@@ -1,0 +1,1 @@
+java -cp lib/jade.jar:classes jade.Boot -gui -container -host localhost -agents 'Ejercicio2:AgenteSuma ("data.txt" "Main-Container")'

@@ -23,7 +23,7 @@ public void setup()
         System.out.println("Falta ingresar el archivo a leer y/o computadora" );
         doDelete(); // Elimino al tipo
     }
-
+    System.out.println("\n\n "+args);
 	Location origen = here();
 	System.out.println("\n\nHola, agente con nombre local " + getLocalName());
 	System.out.println("Y nombre completo... " + getName());
@@ -60,12 +60,12 @@ try {
                         int number = Integer.parseInt(line);
                         sum += number;
                     } catch (NumberFormatException e) {
-                        // Ignorar líneas que no contienen números
+                        // Ignorar lineas que no contienen numeros
                     }
                 }
 
                 bufferedReader.close();
-                System.out.println("La suma de los números en el archivo es: " + sum);
+                System.out.println("La suma de los numeros en el archivo es: " + sum);
             } catch (IOException e) {
                 System.err.println("Error al leer el archivo: " + e.getMessage());
             }
