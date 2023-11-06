@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Maiev\\Downloads\\15-Practica4\\4-Practica\\lib\\jade.jar"
+    ]
+}
