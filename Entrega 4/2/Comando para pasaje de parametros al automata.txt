@@ -1,0 +1,1 @@
+sh 1.compilacion.sh && java -cp lib/jade.jar:classes jade.Boot -gui -container -host localhost -agents "agenteMovil:AgenteMovil('data.txt','Main-container')"

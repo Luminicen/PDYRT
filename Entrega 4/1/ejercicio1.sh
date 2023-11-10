@@ -1,1 +1,1 @@
-java -cp lib/jade.jar:classes jade.Boot -gui -container -host localhost -agents Ejercicio1:Agenteejercicio1
+java -cp lib/jade.jar:classes jade.Boot -gui -container -host localhost -agents Ejercicio1:AgenteMovil2

@@ -1,1 +1,1 @@
-javac -classpath lib/jade.jar -d classes myexamples/Agenteejercicio1.java
+javac -classpath lib/jade.jar -d classes myexamples/AgenteMovil2.java
