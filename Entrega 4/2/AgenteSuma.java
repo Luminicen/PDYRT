@@ -4,12 +4,13 @@ import java.io.IOException;
 
 import jade.core.*;
 import jade.core.behaviours.OneShotBehaviour;
+import jade.util.leap.Serializable;
 public class AgenteSuma extends Agent
 {
 // Ejecutado por nica vez en la creacin
 private String fileName;
 private String computadora;
-Profile profile;
+transient Profile profile;
 
 @Override
 public void setup()
@@ -39,7 +40,7 @@ public void setup()
 	System.out.println("Y nombre completo... " + getName());
 	System.out.println("Y en location " + origen.getID() + "\n\n");
     try {
-        Thread.sleep(5000);
+        Thread.sleep(2000);
     } catch (InterruptedException e) {
         e.printStackTrace();
     }
@@ -60,13 +61,16 @@ try {
         addBehaviour(new CalculateSumBehaviour()); // agrego el comportamiento al tipo
     }
     //A lo laboratorio de software
-    class CalculateSumBehaviour extends OneShotBehaviour {
+    class CalculateSumBehaviour extends OneShotBehaviour implements Serializable   {
         //Esta clase gestiona el comportamiento del tipo
         //En este caso hace la suma
+       
+    
         @Override
         public void action() {
             try {
-                FileReader fileReader = new FileReader(fileName);
+                String stringWithoutApostrophe = fileName.replace("'", "");
+                FileReader fileReader = new FileReader(stringWithoutApostrophe);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
 
                 String line;
@@ -74,8 +78,16 @@ try {
 
                 while ((line = bufferedReader.readLine()) != null) {
                     try {
-                        int number = Integer.parseInt(line);
-                        sum += number;
+                        String[] numbers = line.split(" ");
+                        for (String numberStr : numbers) {
+                            try {
+                                int number = Integer.parseInt(numberStr);
+                                sum += number;
+                            } catch (NumberFormatException e) {
+                                // Ignorar tokens que no son numeros enteros
+                            }
+                        }
+                        
                     } catch (NumberFormatException e) {
                         // Ignorar lineas que no contienen numeros
                     }
