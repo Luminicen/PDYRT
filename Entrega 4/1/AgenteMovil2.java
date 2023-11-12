@@ -8,13 +8,17 @@ public class AgenteMovil2 extends Agent {
     private List<String> data;
     private final Integer cantidadContenedores = 5;
     private Integer actual = 0;
+    private Integer limite = cantidadContenedores + 8;
     private Location origen;
+    private Location origen_inicial;
+    private Boolean fin = false;
     private long tiempoTotalRecorrido = 0;
     private long tiempoActual = 0;
 
     public void setup() {
 
         Location origen = here();
+        origen_inicial = here();
         System.out.println("\n\nHola, agente con nombre local " + getLocalName());
         System.out.println("Y nombre completo... " + getName());
         System.out.println("Y en location " + origen.getID() + "\n\n");
@@ -52,18 +56,20 @@ public class AgenteMovil2 extends Agent {
     }
 
     protected void afterMove() {
-        tiempoTotalRecorrido = tiempoTotalRecorrido + (System.nanoTime() - tiempoActual);
+        if(!fin){
+            tiempoTotalRecorrido = tiempoTotalRecorrido + (System.nanoTime() - tiempoActual);
+            // Simular la recopilacion de informacion
+        }
+        
         origen = here();
-        System.out.println("\n\nCola actual " + getLocalName());
-        System.out.println(contenedores);
+        //System.out.println("\n\nCola actual " + getLocalName());
+        //System.out.println(contenedores);
         System.out.println("\n\nHola, agente migrado con nombre local " + getLocalName());
         System.out.println("Y nombre completo... " + getName());
         System.out.println("Y en location " + origen.getID() + "\n\n");
-        System.out.println("\n\nActual: " + actual);
-
-        // Simular la recopilacion de informacion
-        data.add(origen.getName());
-
+        //System.out.println("\n\nActual: " + actual);
+        if(!fin){data.add(origen.getName()+" MEMORIA USADA: 100MB CARGA: 70% MEMORIA DISPONIBLE: 30MB");}
+        
         // Miro para moverme al siguiente ubicacion
         if (actual < cantidadContenedores) {
             // No estoy en el ultimo contenedor
@@ -77,9 +83,19 @@ public class AgenteMovil2 extends Agent {
                 System.out.println("No fue posible migrar el agente\n\n\n");
             }
         } else {
-
-            System.out.println("Termine\n\n\n");
-            System.out.println(data);
+            if (actual < limite ){
+                //ContainerID destino = new ContainerID(origen.getID(), null);
+                fin = true;
+                actual = limite;
+                doMove(this.origen_inicial);
+            
+            }
+            else{
+                System.out.println("Termine\n\n\n");
+                System.out.println("Tiempo Total: "+tiempoTotalRecorrido+" \n\n\n");
+                System.out.println(data);
+            }
+            
         }
     }
 
