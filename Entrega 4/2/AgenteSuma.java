@@ -9,11 +9,12 @@ public class AgenteSuma extends Agent
 // Ejecutado por nica vez en la creacin
 private String fileName;
 private String computadora;
+Profile profile;
+
 @Override
 public void setup()
 {
     Object[] args = getArguments();
-    
     if (args != null && args.length > 1) {
             // Verifica que se hayan proporcionado argumentos
         fileName = args[0].toString();
@@ -23,14 +24,30 @@ public void setup()
         System.out.println("Falta ingresar el archivo a leer y/o computadora" );
         doDelete(); // Elimino al tipo
     }
+
+    // Get the JADE runtime interface (singleton)
+    jade.core.Runtime runtime = jade.core.Runtime.instance();
+    // Create a Profile, where the launch arguments are stored
+    profile = new ProfileImpl();
+    profile.setParameter(Profile.CONTAINER_NAME, computadora);
+    profile.setParameter(Profile.MAIN_HOST, "localhost");
+    // create a non-main agent container
+    runtime.createAgentContainer(profile);  
     System.out.println("\n\n "+args);
 	Location origen = here();
 	System.out.println("\n\nHola, agente con nombre local " + getLocalName());
 	System.out.println("Y nombre completo... " + getName());
 	System.out.println("Y en location " + origen.getID() + "\n\n");
+    try {
+        Thread.sleep(5000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
 // Para migrar el agente
 try {
 	Location destino = new ContainerID(computadora, null);
+    System.out.println("INTENTO \n\n");
+    System.out.println("Migrando a " + destino.getID() + "\n\n");
     doMove(destino);
 } catch (Exception e) {
 	System.out.println("No fue posible migrar el agente\n\n\n");}
