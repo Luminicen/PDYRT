@@ -8,11 +8,10 @@ public class Ftp {
         long readBytes = 0;
 
         //crea un buffer del tamaño de datps cantidad a leer
-        byte[] buffer;
+        byte[] buffer = new byte[amount];
         try{
 
             rfile = new RandomAccessFile(name, "r");
-            buffer = (amount > 0) ? new byte[amount] : new byte[parserfile.length()];
 
             rfile.seek(position);
             readBytes = rfile.read(buffer);

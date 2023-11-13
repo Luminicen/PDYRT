@@ -7,6 +7,7 @@ public class AgenteMovil extends Agent {
 	private String sourcePath;
 	private String targetPath;
 	private int amount;
+	private Boolean fileRead = false;
 
 	//Ejecutado por unica vez en la creacion
 	public void setup() {
@@ -30,14 +31,22 @@ public class AgenteMovil extends Agent {
 			this.targetPath = args[3].toString();
 			this.amount = parseInt.args[4];
 
-			//comportamiento
+			//sub-behaviors para q no se ejecuten concurrente
+			SequentialBehaviour copies = new SequentialBehaviour();
+			CopyBehaviour localCopy = new CopyBehaviour(this.sourceHost, this.targetHost, this.sourcePath, this.targetPath);
+			CopyBehaviour RemoteCopy = new CopyBehaviour(this.targetHost, this.sourceHost, this.targetPath, this.sourcePath);
+
+			copies.addSubBehaviour(localCopy);
+			copies.addSubBehaviour(RemoteCopy);
+
+			addBehavior(copies);
 
 		} catch (Exception e) {
 			System.out.println("No fue posible migrar el agente\n\n\n");
 		}
 	}
 
-	pivate class CopyBehaviour extends Behaviour{
+	private class CopyBehaviour extends Behaviour{
 		private byte[] content;
 		private String sourceHost;
 		private String targetHost;
@@ -45,6 +54,7 @@ public class AgenteMovil extends Agent {
 		private String targetPath;
 
 		public CopyBehaviour(String sourceHost, String targetHost, String sourcePath, String targetPath){
+			super();
 			this.sourcePath = sourcePath;
 			this.sourceHost = sourceHost;
 			this.targetHost = targetHost;
@@ -52,10 +62,21 @@ public class AgenteMovil extends Agent {
 		}
 
 		public void action(){
-			doMove(new ContainerID(this.targetHost, null));
-			this.content = Ftp.read(sourcePath,0,amount);
-			doMove(new ContainerID(this.sourceHost, null));
-			Ftp.write(targetPath,content);
+			if(this.here.getName().equals(this.sourceHost)) {
+				if(fileRead) {
+					Ftp.write(this.sourcePath, content);
+					//restablece para proxima copia
+					fileRead = false;
+				}
+				else
+					doMove(new ContainerID(this.targetHost, null));
+			}
+			else{
+				content = Ftp.read(targetPath,0,amount);
+				fileRead = true;
+				doMove(new ContainerID(this.sourceHost, null));
+			}
+
 		}
 
 	}
