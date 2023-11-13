@@ -1,14 +1,18 @@
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+
 public class Ftp {
-    public void read(string name, int position, int amount) {
+    public static byte[] read(String name, int position, int amount) {
 
         RandomAccessFile rfile;
         long readBytes = 0;
 
         //crea un buffer del tamaño de datps cantidad a leer
-        byte[] buffer = new byte[amount];
+        byte[] buffer;
         try{
 
             rfile = new RandomAccessFile(name, "r");
+            buffer = (amount > 0) ? new byte[amount] : new byte[parserfile.length()];
 
             rfile.seek(position);
             readBytes = rfile.read(buffer);
@@ -30,11 +34,12 @@ public class Ftp {
         }
         finally{
             System.out.println("Cantidad de bytes leidos: " + readBytes);
+            return buffer;
         }
 
     }
 
-    public void write(string name) {
+    public static void write(String name, byte[] content) {
 
         RandomAccessFile wfile;
         long size = 0;
@@ -45,7 +50,7 @@ public class Ftp {
             size = wfile.length();
 
             wfile.seek(size);
-            wfile.write(request.getBuffer().toByteArray());
+            wfile.write(content);
 
             amount = wfile.length() - size;
 
@@ -59,8 +64,5 @@ public class Ftp {
             System.out.println("Cantidad de bytes escritos: " + amount);
 
         }
-
-        // When you are done, you must call onCompleted.
-        responseObserver.onCompleted();
     }
 }
