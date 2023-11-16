@@ -35,7 +35,7 @@ public class AgenteMovil extends Agent {
 			//sub-behaviors para q no se ejecuten concurrente
 			SequentialBehaviour copies = new SequentialBehaviour();
 			CopyBehaviour localCopy = new CopyBehaviour(this.sourceHost, this.targetHost, this.sourcePath, this.targetPath);
-			CopyBehaviour RemoteCopy = new CopyBehaviour(this.targetHost, this.sourceHost, this.targetPath, this.backupPath);
+			CopyBehaviour RemoteCopy = new CopyBehaviour(this.targetHost, this.sourceHost, this.backupPath, this.sourcePath);
 
 			copies.addSubBehaviour(localCopy);
 			copies.addSubBehaviour(RemoteCopy);
