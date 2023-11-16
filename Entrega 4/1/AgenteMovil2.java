@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jade.core.*;
+import java.lang.management.ManagementFactory;
+import com.sun.management.OperatingSystemMXBean;
 
 public class AgenteMovil2 extends Agent {
     private List<String> contenedores;
@@ -14,6 +16,8 @@ public class AgenteMovil2 extends Agent {
     private Boolean fin = false;
     private long tiempoTotalRecorrido = 0;
     private long tiempoActual = 0;
+
+
 
     public void setup() {
 
@@ -62,13 +66,15 @@ public class AgenteMovil2 extends Agent {
         }
         
         origen = here();
+        OperatingSystemMXBean sys = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
+        
         //System.out.println("\n\nCola actual " + getLocalName());
         //System.out.println(contenedores);
         System.out.println("\n\nHola, agente migrado con nombre local " + getLocalName());
         System.out.println("Y nombre completo... " + getName());
         System.out.println("Y en location " + origen.getID() + "\n\n");
         //System.out.println("\n\nActual: " + actual);
-        if(!fin){data.add(origen.getName()+" MEMORIA USADA: 100MB, CARGA: 70%, MEMORIA DISPONIBLE: 30MB");}
+        if(!fin){data.add(origen.getName()+" CARGA: "+ sys.getSystemLoadAverage()+ " MEMORIA EN USO: "+ (sys.getTotalMemorySize() - sys.getFreeMemorySize())+ " MEMORIA LIBRE: " +sys.getFreeMemorySize() );}
         
         // Miro para moverme al siguiente ubicacion
         if (actual < cantidadContenedores) {
