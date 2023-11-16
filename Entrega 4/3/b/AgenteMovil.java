@@ -28,10 +28,13 @@ public class AgenteMovil extends Agent {
 
 			//inicializacion de variables
 			this.sourceHost = here().getName();
-			this.targetHost = args[1].toString();
-			this.sourcePath = args[2].toString();
-			this.targetPath = args[3].toString();
+			this.targetHost = args[0].toString();
+			this.sourcePath = args[1].toString();
+			this.targetPath = args[2].toString();
+			this.backupPath = args[3].toString();
 			this.amount = Integer.parseInt(args[4].toString());
+
+			System.out.println(this.sourceHost + this.targetHost + this.sourcePath + this.targetPath);
 
 			//sub-behaviors para q no se ejecuten concurrente
 			SequentialBehaviour copies = new SequentialBehaviour();
@@ -54,6 +57,7 @@ public class AgenteMovil extends Agent {
 		private String targetHost;
 		private String sourcePath;
 		private String targetPath;
+		private Boolean copia = false;
 
 		public CopyBehaviour(String sourceHost, String targetHost, String sourcePath, String targetPath){
 			super();
@@ -66,14 +70,19 @@ public class AgenteMovil extends Agent {
 		public void action(){
 			if(here().getName().equals(this.sourceHost)) {
 				if(fileRead) {
+					System.out.println("ya se leyo me dijeorn");
 					Ftp.write(this.sourcePath, content);
 					//restablece para proxima copia
 					fileRead = false;
+					copia = true;
 				}
-				else
+				else{
+					System.out.println("entre a no tenia q estar en local");
 					doMove(new ContainerID(this.targetHost, null));
+				}
 			}
 			else{
+				System.out.println("entre a remoto");
 				content = Ftp.read(targetPath,0,amount);
 				fileRead = true;
 				doMove(new ContainerID(this.sourceHost, null));
@@ -83,7 +92,7 @@ public class AgenteMovil extends Agent {
 
 		@Override
 		public boolean done() {
-			return true;
+			return copia;
 		}
 
 	}
