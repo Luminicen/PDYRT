@@ -6,6 +6,7 @@ public class AgenteMovil extends Agent {
 	private String targetHost;
 	private String sourcePath;
 	private String targetPath;
+	private String backupPath;
 	private int amount;
 	private Boolean fileRead = false;
 
@@ -19,8 +20,8 @@ public class AgenteMovil extends Agent {
 		Object[] args = getArguments();
 
 		try {
-			if (args.length < 4) {
-				System.out.println("Ingresar 1: host destino 2: path origen, 3: path destino, 4: cantidad bytes a copiar");
+			if (args.length < 5) {
+				System.out.println("Ingresar 1: host destino 2: path origen, 3: path destino, 4: path backup, 5: cantidad bytes a copiar");
 				System.exit(1);
 			}
 
@@ -34,7 +35,7 @@ public class AgenteMovil extends Agent {
 			//sub-behaviors para q no se ejecuten concurrente
 			SequentialBehaviour copies = new SequentialBehaviour();
 			CopyBehaviour localCopy = new CopyBehaviour(this.sourceHost, this.targetHost, this.sourcePath, this.targetPath);
-			CopyBehaviour RemoteCopy = new CopyBehaviour(this.targetHost, this.sourceHost, this.targetPath, this.sourcePath);
+			CopyBehaviour RemoteCopy = new CopyBehaviour(this.targetHost, this.sourceHost, this.targetPath, this.backupPath);
 
 			copies.addSubBehaviour(localCopy);
 			copies.addSubBehaviour(RemoteCopy);
