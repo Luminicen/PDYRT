@@ -9,7 +9,7 @@ public class AgenteMovil extends Agent {
 	private byte[] content;
 	private int position;
 	private int amount;
-	private String contentPath;
+	transient Profile profile;
 
 	//Ejecutado por unica vez en la creacion
 	public void setup() {
@@ -35,24 +35,33 @@ public class AgenteMovil extends Agent {
 			this.sourcePath = args[2].toString();
 			this.targetPath = args[3].toString();
 
-			ContainerID destination = new ContainerID(this.targetHost, null);
+			// Get the JADE runtime interface (singleton)
+		jade.core.Runtime runtime = jade.core.Runtime.instance();
+		// Create a Profile, where the launch arguments are stored
+		profile = new ProfileImpl();
+		profile.setParameter(Profile.CONTAINER_NAME, this.targetHost);
+		profile.setParameter(Profile.MAIN_HOST, "localhost");
+		// create a non-main agent container
+		runtime.createAgentContainer(profile);  
+
+			ContainerID destination = new ContainerID(this.targetHost+ System.currentTimeMillis(), null);
 			System.out.println("Migrando el agente a " + destination.getID());
 
 			//Ops en source
 			switch (mode) {
 				case "r":
-					this.position = parseInt.args[4];
+					this.position = Integer.parseInt(args[4].toString());
 					if (args.length < 6) {
 						System.out.println("Para modo r ingresar 2: host destino 3: path origen, 4: path destino, 5: posicion y 6: cantidad de bytes a leer");
 						System.exit(1);
 					}
-					this.amount = parseInt.args[5];
-					this.doMove(this.destination);
+					this.amount = Integer.parseInt(args[5].toString());
+					this.doMove(destination);
 					break;
 				case "w":
-					this.amount = parseInt.args[4];
+					this.amount = Integer.parseInt(args[4].toString());
 					this.content = Ftp.read(this.sourcePath, 0, this.amount);
-					this.doMove(this.destination);
+					this.doMove(destination);
 					break;
 				default:
 					System.out.println("modo ingresado invalido. Ingrese r para modo read o w para modo write");
@@ -70,20 +79,20 @@ public class AgenteMovil extends Agent {
 	protected void afterMove()
 	{
 		if(mode.equals("r")) {
-			if (this.here.getName().equals(this.sourceHost)) {
+			if (here().getName().equals(this.sourceHost)) {
 				Ftp.write(this.sourcePath, content);
 				System.exit(0);
 			} else {
 				this.content = Ftp.read(this.targetPath, this.position, this.amount);
-				this.doMove(new ContainerID(this.sourceHost, null));
+				this.doMove(new ContainerID(this.sourceHost+ System.currentTimeMillis(), null));
 			}
 		}
 		else {
-			if (this.here.getName().equals(this.sourceHost)) {
+			if (here().getName().equals(this.sourceHost)) {
 				System.exit(0);
 			} else {
 				Ftp.write(this.targetPath, this.content);
-				this.doMove(new ContainerID(this.sourceHost, null));
+				this.doMove(new ContainerID(this.sourceHost+ System.currentTimeMillis(), null));
 			}
 		}
 

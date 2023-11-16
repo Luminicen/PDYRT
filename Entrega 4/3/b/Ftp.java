@@ -1,7 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
 
-public class Ftp {
+public class Ftp{
     public static byte[] read(String name, int position, int amount) {
 
         RandomAccessFile rfile;

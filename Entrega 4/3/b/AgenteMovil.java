@@ -1,5 +1,6 @@
 import jade.core.*;
 import jade.core.behaviours.Behaviour;
+import jade.core.behaviours.SequentialBehaviour;
 
 public class AgenteMovil extends Agent {
 	private String sourceHost;
@@ -30,7 +31,7 @@ public class AgenteMovil extends Agent {
 			this.targetHost = args[1].toString();
 			this.sourcePath = args[2].toString();
 			this.targetPath = args[3].toString();
-			this.amount = parseInt.args[4];
+			this.amount = Integer.parseInt(args[4].toString());
 
 			//sub-behaviors para q no se ejecuten concurrente
 			SequentialBehaviour copies = new SequentialBehaviour();
@@ -40,7 +41,7 @@ public class AgenteMovil extends Agent {
 			copies.addSubBehaviour(localCopy);
 			copies.addSubBehaviour(RemoteCopy);
 
-			addBehavior(copies);
+			addBehaviour(copies);
 
 		} catch (Exception e) {
 			System.out.println("No fue posible migrar el agente\n\n\n");
@@ -63,7 +64,7 @@ public class AgenteMovil extends Agent {
 		}
 
 		public void action(){
-			if(this.here.getName().equals(this.sourceHost)) {
+			if(here().getName().equals(this.sourceHost)) {
 				if(fileRead) {
 					Ftp.write(this.sourcePath, content);
 					//restablece para proxima copia
@@ -78,6 +79,11 @@ public class AgenteMovil extends Agent {
 				doMove(new ContainerID(this.sourceHost, null));
 			}
 
+		}
+
+		@Override
+		public boolean done() {
+			return true;
 		}
 
 	}
