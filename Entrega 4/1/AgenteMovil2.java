@@ -68,7 +68,7 @@ public class AgenteMovil2 extends Agent {
         System.out.println("Y nombre completo... " + getName());
         System.out.println("Y en location " + origen.getID() + "\n\n");
         //System.out.println("\n\nActual: " + actual);
-        if(!fin){data.add(origen.getName()+" MEMORIA USADA: 100MB CARGA: 70% MEMORIA DISPONIBLE: 30MB");}
+        if(!fin){data.add(origen.getName()+" MEMORIA USADA: 100MB, CARGA: 70%, MEMORIA DISPONIBLE: 30MB");}
         
         // Miro para moverme al siguiente ubicacion
         if (actual < cantidadContenedores) {
