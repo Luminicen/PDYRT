@@ -59,12 +59,7 @@ public class AgenteMovil2 extends Agent {
         }
     }
 
-    protected void afterMove() {
-        if(!fin){
-            tiempoTotalRecorrido = tiempoTotalRecorrido + (System.nanoTime() - tiempoActual);
-            // Simular la recopilacion de informacion
-        }
-        
+    protected void afterMove() {        
         origen = here();
         OperatingSystemMXBean sys = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
         
@@ -97,8 +92,9 @@ public class AgenteMovil2 extends Agent {
             
             }
             else{
+                tiempoTotalRecorrido = System.nanoTime() - tiempoActual;
                 System.out.println("Termine\n\n\n");
-                System.out.println("Tiempo Total: "+tiempoTotalRecorrido+" \n\n\n");
+                System.out.println("Tiempo total del recorrido en nanosegundos: "+tiempoTotalRecorrido+" \n\n\n");
                 System.out.println(data);
             }
             
